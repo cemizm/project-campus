@@ -167,6 +167,7 @@ app.updateEvent.addEventListener(function (frame) {
         boxGeoEntity.position.setValue(boxPos_1, defaultFrame);
         // orient the box according to the local world frame
         boxGeoEntity.orientation.setValue(Cesium.Quaternion.IDENTITY);
+        gatechGeoEntity.orientation.setValue(Cesium.Quaternion.IDENTITY);
         // now, we want to move the box's coordinates to the FIXED frame, so
         // the box doesn't move if the local coordinate system origin changes.
         if (Argon.convertEntityReferenceFrame(boxGeoEntity, frame.time, ReferenceFrame.FIXED)) {
@@ -181,6 +182,7 @@ app.updateEvent.addEventListener(function (frame) {
     // get the local coordinates of the GT box, and set the THREE object
     var geoPose = app.context.getEntityPose(gatechGeoEntity);
     gatechGeoTarget.position.copy(geoPose.position);
+    gatechGeoTarget.quaternion.copy(geoPose.orientation);
     // rotate the boxes at a constant speed, independent of frame rates     
     // to make it a little less boring
     buzz.rotateY(2 * frame.deltaTime / 10000);
