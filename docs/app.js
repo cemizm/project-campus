@@ -89,7 +89,7 @@ loader.load('buzz.png', function (texture) {
 // (we found the lon/lat of Georgia Tech using Google Maps)
 var gatechGeoEntity = new Cesium.Entity({
     name: "Georgia Tech",
-    position: Cartesian3.fromDegrees(8.55369, 52.034133),
+    position: Cartesian3.fromDegrees(8.55369, 52.034133, 118),
     orientation: Cesium.Quaternion.IDENTITY
 });
 var gatechGeoTarget = new THREE.Object3D;
