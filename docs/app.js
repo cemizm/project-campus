@@ -80,7 +80,6 @@ loader.load('box.png', function (texture) {
     var geometry = new THREE.BoxGeometry(10, 10, 10);
     var material = new THREE.MeshBasicMaterial({ map: texture });
     var mesh = new THREE.Mesh(geometry, material);
-    mesh.scale.set(100, 100, 100);
     buzz.add(mesh);
 });
 // have our geolocated object start somewhere, in this case 
