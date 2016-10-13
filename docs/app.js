@@ -77,7 +77,7 @@ app.context.setDefaultReferenceFrame(app.context.localOriginEastUpSouth);
 var buzz = new THREE.Object3D;
 var loader = new THREE.TextureLoader();
 loader.load('box.png', function (texture) {
-    var geometry = new THREE.BoxGeometry(10, 10, 10);
+    var geometry = new THREE.BoxGeometry(1, 1, 1);
     var material = new THREE.MeshBasicMaterial({ map: texture });
     var mesh = new THREE.Mesh(geometry, material);
     buzz.add(mesh);
@@ -88,7 +88,7 @@ loader.load('box.png', function (texture) {
 // (we found the lon/lat of Georgia Tech using Google Maps)
 var gatechGeoEntity = new Cesium.Entity({
     name: "Georgia Tech",
-    position: Cartesian3.fromDegrees(8.55369, 52.034133, 106),
+    position: Cartesian3.fromDegrees(8.553541, 52.034204, 106),
     orientation: Cesium.Quaternion.IDENTITY
 });
 var gatechGeoTarget = new THREE.Object3D;
@@ -166,7 +166,6 @@ app.updateEvent.addEventListener(function (frame) {
         boxGeoEntity.position.setValue(boxPos_1, defaultFrame);
         // orient the box according to the local world frame
         boxGeoEntity.orientation.setValue(Cesium.Quaternion.IDENTITY);
-        gatechGeoEntity.orientation.setValue(Cesium.Quaternion.IDENTITY);
         // now, we want to move the box's coordinates to the FIXED frame, so
         // the box doesn't move if the local coordinate system origin changes.
         if (Argon.convertEntityReferenceFrame(boxGeoEntity, frame.time, ReferenceFrame.FIXED)) {
@@ -181,6 +180,7 @@ app.updateEvent.addEventListener(function (frame) {
     // get the local coordinates of the GT box, and set the THREE object
     var geoPose = app.context.getEntityPose(gatechGeoEntity);
     gatechGeoTarget.position.copy(geoPose.position);
+    gatechGeoTarget.quaternion.copy(geoPose.orientation);
     // rotate the boxes at a constant speed, independent of frame rates     
     // to make it a little less boring
     buzz.rotateY(2 * frame.deltaTime / 10000);
