@@ -76,7 +76,7 @@ app.context.setDefaultReferenceFrame(app.context.localOriginEastUpSouth);
 // create a 100m cube with a Buzz texture on it, that we will attach to a geospatial object at Georgia Tech
 var buzz = new THREE.Object3D;
 var loader = new THREE.TextureLoader();
-loader.load('buzz.png', function (texture) {
+loader.load('box.png', function (texture) {
     var geometry = new THREE.BoxGeometry(10, 10, 10);
     var material = new THREE.MeshBasicMaterial({ map: texture });
     var mesh = new THREE.Mesh(geometry, material);
@@ -182,7 +182,6 @@ app.updateEvent.addEventListener(function (frame) {
     // get the local coordinates of the GT box, and set the THREE object
     var geoPose = app.context.getEntityPose(gatechGeoEntity);
     gatechGeoTarget.position.copy(geoPose.position);
-    gatechGeoTarget.quaternion.copy(geoPose.orientation);
     // rotate the boxes at a constant speed, independent of frame rates     
     // to make it a little less boring
     buzz.rotateY(2 * frame.deltaTime / 10000);
