@@ -1,0 +1,23 @@
+{
+  "name": "app",
+  "homepage": "https://github.com/cemizm/project-campus",
+  "authors": [
+    "Cem Basoglu <cem.basoglu@web.de>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "three.js": "three#*",
+    "font-awesome": "^4.6.3",
+    "aframe": "0.3.1"
+  }
+}
