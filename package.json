@@ -1,0 +1,26 @@
+{
+  "name": "project-campus",
+  "version": "1.0.0",
+  "description": "AR Campus Minden Introduction Tour",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "postinstall": "cd app && bower install",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://cemizm@github.com/cemizm/project-campus.git"
+  },
+  "author": "Cem Basoglu <cem.basoglu@web.de>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cemizm/project-campus/issues"
+  },
+  "homepage": "https://github.com/cemizm/project-campus#readme",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}
