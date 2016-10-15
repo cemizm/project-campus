@@ -13,22 +13,20 @@
 </head>
 <body>
 <div hidden>
-    <div id="gtdiv" class="label">Georgia Tech</div>
-    <div id="londondiv" class="label">Tower of London</div>
-    <div id="tokyodiv" class="label">Tokyo</div>
-    <div id="sydneydiv" class="label">Sydney Opera House</div>
-    <div id="londonpin" class="pin"><i class="fa fa-map-marker" aria-hidden="true"></i></div>
-    <div id="tokyopin" class="pin"><i class="fa fa-map-marker" aria-hidden="true"></i></div>
-    <div id="sydneypin" class="pin"><i class="fa fa-map-marker" aria-hidden="true"></i></div>
+    <div id="dronediv" class="label">Test Drone</div>
 </div>
 <ar-scene>
-    <ar-assets>
+    <a-assets>
         <img id="buzzpin" src="resources/buzz.png">
-    </ar-assets>
-    <ar-geopose id="GT" lla="8.588306 51.998682 130" userotation="false">
-        <a-entity  billboard>
-            <a-plane rotation="0 0 0" width="1" height="1" src="#buzzpin" transparent="true" ></a-plane>
-            <a-entity css-object="div: #gtdiv" scale="0.01 0.01 0.01" position="0 2 0" showdistance="Tech Tower @ Georgia Tech<br>Atlanta, GA, USA<br>It is "></a-entity>
+
+        <a-asset-item id="drone-obj" src="resources/drone.obj"></a-asset-item>
+        <a-asset-item id="drone-mtl" src="resources/drone.mtl"></a-asset-item>
+
+    </a-assets>
+    <ar-geopose id="drone" lla="8.588484 51.998733 122" userotation="false">
+        <a-entity billboard>
+            <a-entity rotation="0 0 0" scale="2 2 2" obj-model="obj: #drone-obj; mtl: #drone-mtl"></a-entity>
+            <a-entity css-object="div: #dronediv" scale="0.01 0.01 0.01" position="0 5 0" showdistance="Test Drone<br>It is "></a-entity>
         </a-entity>
     </ar-geopose>
 </ar-scene>
