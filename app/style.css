@@ -1,70 +1,103 @@
 body {
-	font-family: Arial;
+    margin: 0px;
+    font-family: Arial;
+    'background: url("http://www.minden.de/stadt_minden/Leben%20in%20Minden/Minden%20f%C3%BCr.../Studierende/CampusMinden%20_%20FH.jpg?resize=900x362%5E") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
 a {
-	color: #ffffff;
+    color: #ffffff;
 }
 
 .menu {
-	position: absolute;
-	bottom: 0;
-	width: 100%;
-	text-align: center;
-	pointer-events: auto;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    pointer-events: auto;
 }
 
 .label {
-	opacity: 0.5;
-	font-size: 25px;
-	text-align: center;
-	color: black;
-	background: rgba(127,255,255,0.85);
-	outline: 5px solid rgba(12,25,25,1.0);
-	border: 0px;
-	margin-bottom: 0px;
-	padding: 0px 0px;
+    opacity: 0.5;
+    font-size: 25px;
+    text-align: center;
+    color: black;
+    background: rgba(127, 255, 255, 0.85);
+    outline: 5px solid rgba(12, 25, 25, 1.0);
+    border: 0px;
+    margin-bottom: 0px;
+    padding: 0px 0px;
 }
 
 .pin {
-	font-size: 100px;
-	text-align: center;
-	color:indianred;
-	background: transparent;
-	border: 0px;
-	margin-bottom: 0px;
-	padding: 0px 0px;
+    font-size: 100px;
+    text-align: center;
+    color: indianred;
+    background: transparent;
+    border: 0px;
+    margin-bottom: 0px;
+    padding: 0px 0px;
 }
 
 .boxface {
-	opacity: 0.5;
-	width: 90px;
-	height: 90px;
-	font-size: 25px;
-	text-align: center;
-	color: black;
-	background: rgba(127,255,255,0.85);
-	outline: 5px solid rgba(12,25,25,1.0);
-	border: 0px;
-	margin-bottom: 0px;
-	padding: 0px 0px;
+    opacity: 0.5;
+    width: 90px;
+    height: 90px;
+    font-size: 25px;
+    text-align: center;
+    color: black;
+    background: rgba(127, 255, 255, 0.85);
+    outline: 5px solid rgba(12, 25, 25, 1.0);
+    border: 0px;
+    margin-bottom: 0px;
+    padding: 0px 0px;
 }
 
 button {
-	opacity: 0.5;
-	text-align: center;
-	color: black;
-	background: rgba(127,255,255,0.85);
-	outline: 5px solid rgba(12,25,25,1.0);
-	border: 0px;
-	margin-bottom: 0px;
-	font-size: 16;
-	border: 0px;
-	padding: 5px 10px;
-	cursor: pointer;
-	margin: 10px;
+    opacity: 0.5;
+    text-align: center;
+    color: black;
+    background: rgba(127, 255, 255, 0.85);
+    outline: 5px solid rgba(12, 25, 25, 1.0);
+    border: 0px;
+    margin-bottom: 0px;
+    font-size: 16;
+    border: 0px;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin: 10px;
 }
+
 button:hover {
-	color: rgba(127,255,255,0.85);
-	background: black;
+    color: rgba(127, 255, 255, 0.85);
+    background: black;
+}
+
+.bottomScreen {
+    height: 80px;
+    position: absolute;
+    bottom: 0px;
+    margin: 0px;
+    left: 0px;
+    width: 100%;
+    text-align: center;
+    color: #000000;
+    background: rgba(255, 255, 255, 0.4);
+    border: 0px;
+    display: inline-block;
+    font-size: 24px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.viewerMode.bottomScreen {
+    font-size: 8px;
+    bottom: 120px;
+    padding: 2px;
+}
+
+.hide.bottomScreen {
+    display: none;
 }

@@ -12,20 +12,25 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div hidden>
-    <div id="dronediv" class="label">Test Drone</div>
-</div>
-<ar-scene>
+<ar-scene vuforiakey="#vuforiakey"
+          vuforiadataset__asd="src:url(./resources/datasets/database.xml);">
     <a-assets>
-        <a-asset-item id="drone-obj" src="resources/drone.obj"></a-asset-item>
-        <a-asset-item id="drone-mtl" src="resources/drone.mtl"></a-asset-item>
+        <a-asset-item id="vuforiakey" src="key.txt"></a-asset-item>
+        <a-asset-item id="arrow-obj" src="resources/arrow.obj"></a-asset-item>
+        <a-asset-item id="arrow-mtl" src="resources/arrow.mtl"></a-asset-item>
     </a-assets>
-    <ar-geopose lla="8.905994 52.295989 51.09" userotation="false">
-        <a-entity billboard>
-            <a-entity rotation="0 0 0" scale="2 2 2" obj-model="obj: #drone-obj; mtl: #drone-mtl"></a-entity>
-            <a-entity css-object="div: #dronediv" scale="0.01 0.01 0.01" position="0 5 0" showdistance="Test Drone<br>It is "></a-entity>
-        </a-entity>
-    </ar-geopose>
+    <!--<a-entity camera look-controls>-->
+        <!--<a-entity geometry="primitive: plane; height: 0.3; width: 100%" position="0 -0.75 -1"-->
+                  <!--material="color: white; opacity: 0.5">-->
+            <!--<a-entity position="0 0.1 0.1" scale="0.01 0.01 0.01" rotation="0 90 0"-->
+                      <!--obj-model="obj: #arrow-obj; mtl: #arrow-mtl" material="color: red;"></a-entity>-->
+        <!--</a-entity>-->
+    <!--</a-entity>-->
+
+    <a-entity referenceframe="parent: vuforia.asd.flip" position="0 0 0" rotation="0 0 0">
+        <a-sphere position="0 0 0.05" radius="0.1" color="#EF2D5E" ></a-sphere>
+    </a-entity>
+
 </ar-scene>
 </body>
 </html>
