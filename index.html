@@ -19,19 +19,18 @@
         <a-asset-item id="arrow-obj" src="resources/arrow.obj"></a-asset-item>
         <a-asset-item id="arrow-mtl" src="resources/arrow.mtl"></a-asset-item>
     </a-assets>
-    <a-entity camera look-controls>
-        <a-entity geometry="primitive: plane; height: 0.3; width: 100%" position="0 -0.75 -1"
-                  material="color: white; opacity: 0.5">
-            <a-entity position="0 0.1 0.1" scale="0.01 0.01 0.01" rotation="0 90 0"
-                      obj-model="obj: #arrow-obj; mtl: #arrow-mtl" material="color: red;"></a-entity>
-        </a-entity>
-    </a-entity>
+    <!--<a-entity camera look-controls>-->
+        <!--<a-entity geometry="primitive: plane; height: 0.3; width: 100%" position="0 -0.75 -1"-->
+                  <!--material="color: white; opacity: 0.5">-->
+            <!--<a-entity position="0 0.1 0.1" scale="0.01 0.01 0.01" rotation="0 90 0"-->
+                      <!--obj-model="obj: #arrow-obj; mtl: #arrow-mtl" material="color: red;"></a-entity>-->
+        <!--</a-entity>-->
+    <!--</a-entity>-->
 
     <a-entity referenceframe="parent: vuforia.db.IMG_1969" position="0 0 0" rotation="0 0 0">
         <a-sphere position="0 0 0.05" radius="0.1" color="#EF2D5E" ></a-sphere>
     </a-entity>
 
-    <a-sky color="#ECECEC"></a-sky>
 </ar-scene>
 </body>
 </html>
