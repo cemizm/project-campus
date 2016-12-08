@@ -1,11 +1,6 @@
 body {
     margin: 0px;
     font-family: Arial;
-    'background: url("http://www.minden.de/stadt_minden/Leben%20in%20Minden/Minden%20f%C3%BCr.../Studierende/CampusMinden%20_%20FH.jpg?resize=900x362%5E") no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
 }
 
 a {
@@ -77,7 +72,8 @@ button:hover {
 }
 
 .bottomScreen {
-    height: 80px;
+    padding: 5px;
+    height: 120px;
     position: absolute;
     bottom: 0px;
     margin: 0px;
@@ -90,6 +86,7 @@ button:hover {
     display: inline-block;
     font-size: 24px;
     font-family: 'Open Sans', sans-serif;
+    color: rgba(0, 0, 0, 0.8);
 }
 
 .viewerMode.bottomScreen {

@@ -7,30 +7,43 @@
     <script src="lib/CSS3DArgonRenderer.js"></script>
     <script src="lib/CSS3DArgonHUD.js"></script>
     <script src="lib/aframe-look-at-component.js"></script>
-    <script src="app.js"></script>
     <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="splash.css">
 </head>
 <body>
-<ar-scene vuforiakey="#vuforiakey"
-          vuforiadataset__campus="src:url(./resources/datasets/database.xml);">
+<div hidden>
+</div>
+<div id="loader-wrapper">
+    <div class="splashtext">
+        <h1>Campus Minden</h1>
+        <h2 id="status">App wird geladen...</h2>
+    </div>
+    <div id="loader"></div>
+    <div class="loader-section section-left"></div>
+    <div class="loader-section section-right"></div>
+</div>
+<ar-scene vuforiakey="#vuforiakey" vuforiadataset__campus="src:url(resources/datasets/database.xml);">
     <a-assets>
         <a-asset-item id="vuforiakey" src="key.txt"></a-asset-item>
         <a-asset-item id="arrow-obj" src="resources/arrow.obj"></a-asset-item>
         <a-asset-item id="arrow-mtl" src="resources/arrow.mtl"></a-asset-item>
     </a-assets>
-    <!--<a-entity camera look-controls>-->
-        <!--<a-entity geometry="primitive: plane; height: 0.3; width: 100%" position="0 -0.75 -1"-->
-                  <!--material="color: white; opacity: 0.5">-->
-            <!--<a-entity position="0 0.1 0.1" scale="0.01 0.01 0.01" rotation="0 90 0"-->
-                      <!--obj-model="obj: #arrow-obj; mtl: #arrow-mtl" material="color: red;"></a-entity>-->
-        <!--</a-entity>-->
-    <!--</a-entity>-->
 
     <a-entity referenceframe="parent: vuforia.campus.flip" position="0 0 0" rotation="0 0 0">
-        <a-sphere position="0 0 0.05" radius="0.1" color="#EF2D5E" ></a-sphere>
+        <a-sphere position="0 0 0.05" radius="0.1" color="#EF2D5E"></a-sphere>
     </a-entity>
 
+    <ar-geopose id="start" lla="8.588148 51.998330" useraltitutde></ar-geopose>
+
+    <ar-camera>
+        <a-entity position="0 -0.4 -1" track>
+            <a-entity scale="0.01 0.01 0.01" rotation="0 180 0"
+                      obj-model="obj: #arrow-obj; mtl: #arrow-mtl"></a-entity>
+        </a-entity>
+    </ar-camera>
+    <div id="distance" class="bottomScreen"></div>
 </ar-scene>
+<script src="app.js"></script>
 </body>
 </html>
