@@ -14,6 +14,8 @@ arScene.addEventListener('argon-vuforia-initialization-failed', function (evt) {
 
 arScene.addEventListener('argon-vuforia-dataset-loaded', function (evt) {
     loader.classList.add('loaded');
+
+    gameplay.init();
 });
 arScene.addEventListener('argon-vuforia-dataset-load-failed', function (evt) {
     statusMsg.innerHTML = "Inhalte konnten nicht geladen werden: " + evt.detail.error.message;
@@ -22,11 +24,42 @@ arScene.addEventListener('argon-vuforia-dataset-load-failed', function (evt) {
 arScene.addEventListener('argon-vuforia-not-available', function (evt) {
     loader.classList.add('loaded');
 });
-var distanceEl = document.querySelector("#distance");
-var currentTarget = 0;
 
-var targets = [];
-targets[0] = document.querySelector('#start');
+var gameplay = {
+    distanceEl: document.querySelector("#distance"),
+    targets: document.querySelectorAll('.targets'),
+    initialized: false,
+    currentTarget: 0,
+
+    init: function() {
+      this.initialized = true;
+    },
+
+    getCurrentTarget: function () {
+        if(!this.initialized) return null;
+
+        return this.targets[this.currentTarget];
+    },
+
+    showDistance: function (distance) {
+        if(!this.initialized) return;
+
+        if (distance < 3)
+            this.targetEntered();
+
+        var unit = " m"
+        if (distance > 1000) {
+            distance = distance / 1000;
+            unit = " km";
+        }
+        distance = Math.round(distance);
+        this.distanceEl.innerHTML = distance + unit;
+    },
+
+    targetEntered: function () {
+        this.currentTarget++;
+    },
+};
 
 AFRAME.registerComponent('track', {
     init: function () {
@@ -34,9 +67,12 @@ AFRAME.registerComponent('track', {
     },
     tick: function (t) {
         var self = this;
+        var targetEl = gameplay.getCurrentTarget();
 
-        var target = targets[currentTarget].object3D;
-        var camera = targets[currentTarget].sceneEl.camera;
+        if (!targetEl) return;
+
+        var target = targetEl.object3D;
+        var camera = targetEl.sceneEl.camera;
         var arrow = self.el.object3D;
 
         this.vector.setFromMatrixPosition(target.matrixWorld);
@@ -44,13 +80,13 @@ AFRAME.registerComponent('track', {
             arrow.parent.updateMatrixWorld();
             arrow.parent.worldToLocal(this.vector);
         }
+
         arrow.lookAt(this.vector);
 
-        if(camera) {
+        if (camera) {
             var cameraPos = camera.getWorldPosition();
             var targetPos = target.getWorldPosition();
-            var distance = Math.round(targetPos.distanceTo(cameraPos));
-            distanceEl.innerHTML = distance + " m"
+            gameplay.showDistance(targetPos.distanceTo(cameraPos));
         }
     }
 });
