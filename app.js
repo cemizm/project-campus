@@ -34,6 +34,7 @@ var gameplay = {
         var self = this;
         for (var i = 0; i < this.targets.length; i++) {
             this.targets[i].addEventListener('entered', function (evt) {
+                console.log("entered: " + i);
                 if (self.currentTarget == i && evt.inside === true)
                     self.targetEntered();
             });
@@ -95,7 +96,6 @@ AFRAME.registerComponent('useraltitutde', {
         var target = self.el.object3D;
         var camera = self.el.sceneEl.camera;
 
-        console.log("Y: " + camera.position.y);
         target.position.setY(camera.position.y);
     }
 });
