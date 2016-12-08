@@ -34,7 +34,9 @@ var gameplay = {
         var self = this;
         for (var i = 0; i < this.targets.length; i++) {
             this.targets[i].addEventListener('entered', function (evt) {
+                console.log("----------------------");
                 console.log("entered: " + i);
+                console.log("----------------------");
                 if (self.currentTarget == i && evt.inside === true)
                     self.targetEntered();
             });
