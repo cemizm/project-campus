@@ -23,11 +23,22 @@ arScene.addEventListener('argon-vuforia-not-available', function (evt) {
     loader.classList.add('loaded');
 });
 
+
 var gameplay = {
     distanceEl: document.querySelector("#distance"),
     targets: document.querySelectorAll('.targets'),
 
     currentTarget: 0,
+
+    init: function () {
+        var self = this;
+        for (var i = 0; i < this.targets.length; i++) {
+            target[i].addEventListener('entered', function (evt) {
+                if (self.currentTarget == i && evt.inside === true)
+                    self.targetEntered();
+            });
+        }
+    },
 
     getCurrentTarget: function () {
         return this.targets[this.currentTarget];
@@ -45,9 +56,10 @@ var gameplay = {
 
     targetEntered: function () {
         this.currentTarget++;
-    }
+    },
 };
 
+gameplay.init();
 
 AFRAME.registerComponent('track', {
     init: function () {
