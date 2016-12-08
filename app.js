@@ -30,24 +30,15 @@ var gameplay = {
 
     currentTarget: 0,
 
-    init: function () {
-        var self = this;
-        for (var i = 0; i < this.targets.length; i++) {
-            this.targets[i].addEventListener('entered', function (evt) {
-                console.log("----------------------");
-                console.log("entered: " + i);
-                console.log("----------------------");
-                if (self.currentTarget == i && evt.inside === true)
-                    self.targetEntered();
-            });
-        }
-    },
-
     getCurrentTarget: function () {
         return this.targets[this.currentTarget];
     },
 
     showDistance: function (distance) {
+
+        if(distance < 3)
+            this.targetEntered();
+
         var unit = " m"
         if (distance > 1000) {
             distance = distance / 1000;
@@ -61,8 +52,6 @@ var gameplay = {
         this.currentTarget++;
     },
 };
-
-gameplay.init();
 
 AFRAME.registerComponent('track', {
     init: function () {
