@@ -14,6 +14,8 @@ arScene.addEventListener('argon-vuforia-initialization-failed', function (evt) {
 
 arScene.addEventListener('argon-vuforia-dataset-loaded', function (evt) {
     loader.classList.add('loaded');
+
+    gameplay.init();
 });
 arScene.addEventListener('argon-vuforia-dataset-load-failed', function (evt) {
     statusMsg.innerHTML = "Inhalte konnten nicht geladen werden: " + evt.detail.error.message;
@@ -23,20 +25,26 @@ arScene.addEventListener('argon-vuforia-not-available', function (evt) {
     loader.classList.add('loaded');
 });
 
-
 var gameplay = {
     distanceEl: document.querySelector("#distance"),
     targets: document.querySelectorAll('.targets'),
-
+    initialized: false,
     currentTarget: 0,
 
+    init: function() {
+      this.initialized = true;
+    },
+
     getCurrentTarget: function () {
+        if(!this.initialized) return null;
+
         return this.targets[this.currentTarget];
     },
 
     showDistance: function (distance) {
+        if(!this.initialized) return;
 
-        if(distance < 3)
+        if (distance < 3)
             this.targetEntered();
 
         var unit = " m"
@@ -60,6 +68,9 @@ AFRAME.registerComponent('track', {
     tick: function (t) {
         var self = this;
         var targetEl = gameplay.getCurrentTarget();
+
+        if (!targetEl) return;
+
         var target = targetEl.object3D;
         var camera = targetEl.sceneEl.camera;
         var arrow = self.el.object3D;
