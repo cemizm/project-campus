@@ -22,11 +22,32 @@ arScene.addEventListener('argon-vuforia-dataset-load-failed', function (evt) {
 arScene.addEventListener('argon-vuforia-not-available', function (evt) {
     loader.classList.add('loaded');
 });
-var distanceEl = document.querySelector("#distance");
-var currentTarget = 0;
 
-var targets = [];
-targets[0] = document.querySelector('#start');
+var gameplay = {
+    distanceEl: document.querySelector("#distance"),
+    targets: document.querySelectorAll('.targets'),
+
+    currentTarget: 0,
+
+    getCurrentTarget: function () {
+        return this.targets[this.currentTarget];
+    },
+
+    showDistance: function (distance) {
+        var unit = " m"
+        if (distance > 1000) {
+            distance = distance / 1000;
+            unit = " km";
+        }
+        distance = Math.round(distance);
+        this.distanceEl.innerHTML = distance + unit;
+    },
+
+    targetEntered: function () {
+        this.currentTarget++;
+    }
+};
+
 
 AFRAME.registerComponent('track', {
     init: function () {
@@ -34,9 +55,9 @@ AFRAME.registerComponent('track', {
     },
     tick: function (t) {
         var self = this;
-
-        var target = targets[currentTarget].object3D;
-        var camera = targets[currentTarget].sceneEl.camera;
+        var targetEl = gameplay.getCurrentTarget();
+        var target = targetEl.object3D;
+        var camera = targetEl.sceneEl.camera;
         var arrow = self.el.object3D;
 
         this.vector.setFromMatrixPosition(target.matrixWorld);
@@ -44,13 +65,13 @@ AFRAME.registerComponent('track', {
             arrow.parent.updateMatrixWorld();
             arrow.parent.worldToLocal(this.vector);
         }
+
         arrow.lookAt(this.vector);
 
-        if(camera) {
+        if (camera) {
             var cameraPos = camera.getWorldPosition();
             var targetPos = target.getWorldPosition();
-            var distance = Math.round(targetPos.distanceTo(cameraPos));
-            distanceEl.innerHTML = distance + " m"
+            gameplay.showDistance(targetPos.distanceTo(cameraPos));
         }
     }
 });
