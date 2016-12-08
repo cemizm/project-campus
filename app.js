@@ -95,6 +95,6 @@ AFRAME.registerComponent('useraltitutde', {
         var target = self.el.object3D;
         var camera = self.el.sceneEl.camera;
 
-        target.position.setY(camera.position.y - 0.3);
+        target.position.setY(camera.position.y);
     }
 });
