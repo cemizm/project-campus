@@ -26,12 +26,21 @@
 <ar-scene vuforiakey="#vuforiakey" vuforiadataset__campus="src:url(resources/datasets/database.xml);">
     <a-assets>
         <a-asset-item id="vuforiakey" src="key.txt"></a-asset-item>
-        <a-asset-item id="arrow-obj" src="resources/cube.obj"></a-asset-item>
-        <!--a-asset-item id="arrow-mtl" src="resources/arrow.mtl"></a-asset-item-->
+        <a-asset-item id="arrow-obj" src="resources/arrow.obj"></a-asset-item>
+        <a-asset-item id="arrow-mtl" src="resources/arrow.mtl"></a-asset-item>
+        <a-asset-item id="cube-obj" src="resources/cube.obj"></a-asset-item>
     </a-assets>
 
-    <a-entity referenceframe="parent: vuforia.campus.flip" position="0 0 0" rotation="0 0 0">
-        <a-sphere position="0 0 0.05" radius="0.1" color="#EF2D5E"></a-sphere>
+    <a-entity referenceframe="parent: vuforia.campus.fhSchild" position="0 0 0" rotation="0 0 0">
+        <a-entity obj-model="obj: #cube-obj"></a-entity>
+    </a-entity>
+
+    <a-entity referenceframe="parent: vuforia.campus.buildingF" position="0 0 0" rotation="0 0 0">
+        <a-entity obj-model="obj: #cube-obj"></a-entity>
+    </a-entity>
+
+    <a-entity referenceframe="parent: vuforia.campus.buildingE" position="0 0 0" rotation="0 0 0">
+        <a-entity obj-model="obj: #cube-obj"></a-entity>
     </a-entity>
 
     <ar-geopose class="targets" lla="8.907355 52.296265" useraltitutde></ar-geopose>
