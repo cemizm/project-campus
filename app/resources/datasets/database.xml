@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
   <Tracking>
+    <ImageTarget name="buildingF" size="1.000000 1.779359" />
+    <ImageTarget name="fhSchildCropped" size="1.000000 0.395494" />
+    <ImageTarget name="fhSchild" size="1.000000 0.750000" />
+    <ImageTarget name="buildingE" size="1.000000 0.750000" />
     <ImageTarget name="flip" size="1.000000 0.750000" />
-    <ImageTarget name="rsz_img_1966" size="1.000000 0.750000" />
   </Tracking>
 </QCARConfig>
