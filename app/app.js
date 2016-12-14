@@ -10,6 +10,7 @@ arScene.addEventListener('argon-vuforia-initialized', function (evt) {
 });
 arScene.addEventListener('argon-vuforia-initialization-failed', function (evt) {
     statusMsg.innerHTML = "Fehler bei Initialisierung: " + evt.detail.error.message;
+    gameplay.init();
 });
 
 arScene.addEventListener('argon-vuforia-dataset-loaded', function (evt) {
@@ -24,6 +25,10 @@ arScene.addEventListener('argon-vuforia-dataset-load-failed', function (evt) {
 arScene.addEventListener('argon-vuforia-not-available', function (evt) {
     loader.classList.add('loaded');
 });
+
+function hideMe(elem) {
+	gameplay.dismiss();
+}	
 
 var gameplay = {
     distanceEl: document.querySelector("#distance"),
@@ -57,8 +62,15 @@ var gameplay = {
     },
 
     targetEntered: function () {
-        this.currentTarget++;
+    	document.getElemntById("description").style.display = 'block';
+    	document.getElementById("descriptionTarget").textContent(currentTarget + " entered");
     },
+    
+    dismiss: function () {
+    	document.getElemntById("description").style.display = 'none';
+    	this.currentTarget++;
+    }
+    
 };
 
 AFRAME.registerComponent('track', {
