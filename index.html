@@ -13,6 +13,7 @@
 </head>
 <body>
 <div hidden>
+    <div id="box_distance" class="boxface">WebGL<br>+<br>CSS</div>
 </div>
 <div id="loader-wrapper">
     <div class="splashtext">
@@ -22,11 +23,6 @@
     <div id="loader"></div>
     <div class="loader-section section-left"></div>
     <div class="loader-section section-right"></div>
-</div>
-<div onclick="hideMe(this)" id="description" >
-    <h2>A Simple Geo example</h2>
-    <h5>(click to dismiss)</h5>
-    <p id="descriptionTarget">This example takes the current location of the viewer, and positions a cube at a well known nearby location (the Georgia Tech campus, for us), and creates a second cube a small distance away from where the viewer was positioned when the example was loaded.  We do this by adding a small amount to our current east-west location, in the local Three.js cartesian coordinates.  This illustrates how to create geospatial content based on the current location, and update the internal geospatial location of the object.</p>
 </div>
 <ar-scene vuforiakey="#vuforiakey" vuforiadataset__campus="src:url(resources/datasets/database.xml);">
     <a-assets>
@@ -56,6 +52,7 @@
         <a-entity position="0 -0.4 -1" track>
             <a-entity scale="0.01 0.01 0.01" rotation="0 180 0"
                       obj-model="obj: #arrow-obj; mtl: #arrow-mtl"></a-entity>
+            <a-entity css-object="div: #box_distance" scale="0.01 0.01 0.01" rotation="0 0 0"></a-entity>
         </a-entity>
     </ar-camera>
     <div id="distance" class="bottomScreen"></div>
