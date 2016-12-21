@@ -38,31 +38,3 @@ button:hover {
     color: rgba(127, 255, 255, 0.85);
     background: black;
 }
-
-.bottomScreen {
-    padding: 5px;
-    height: 120px;
-    position: absolute;
-    bottom: 0px;
-    margin: 0px;
-    left: 0px;
-    width: 100%;
-    text-align: center;
-    color: #000000;
-    background: rgba(255, 255, 255, 0.4);
-    border: 0px;
-    display: inline-block;
-    font-size: 24px;
-    font-family: 'Open Sans', sans-serif;
-    color: rgba(0, 0, 0, 0.8);
-}
-
-.viewerMode.bottomScreen {
-    font-size: 8px;
-    bottom: 120px;
-    padding: 2px;
-}
-
-.hide.bottomScreen {
-    display: none;
-}
