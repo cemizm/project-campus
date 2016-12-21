@@ -31,7 +31,7 @@ function hideMe(elem) {
 }	
 
 var gameplay = {
-    distanceEl: document.querySelector("#distance"),
+    distanceEl: document.querySelector("#box_distance"),
     targets: document.querySelectorAll('.targets'),
     initialized: false,
     currentTarget: 0,
