@@ -41,6 +41,11 @@ a {
     -webkit-backdrop-filter: blur(5px);
 }
 
+#bottom_box .info {
+    width: 50%;
+    text-align: center;
+}
+
 #bottom_box img {
     margin: 10px;
 }
