@@ -3,7 +3,7 @@
  */
 
 AFRAME.registerComponent('gameplay', {
-    target:  null,
+    target: null,
     schema: {
         targets: {type: 'selectorAll'},
         distance: {type: 'selector'},
@@ -17,18 +17,20 @@ AFRAME.registerComponent('gameplay', {
     },
 
     tick: function (t) {
-        if(!this.target) return;
+        if (!this.target) return;
 
         var distance = this.target.components.target.getDistance();
 
+
         this.showDistance(distance);
+        this.showCredits();
     },
 
     getCurrentTarget: function () {
         return this.target;
     },
 
-    update: function() {
+    update: function () {
         this.updateTarget();
     },
 
@@ -44,16 +46,16 @@ AFRAME.registerComponent('gameplay', {
         this.updateTarget();
     },
 
-    updateTarget: function() {
+    updateTarget: function () {
         this.setTarget(this.run ? this.data.targets[this.currentTarget] : null);
     },
 
-    setTarget: function(target){
-        if(target == this.target) return;
+    setTarget: function (target) {
+        if (target == this.target) return;
 
         this.target = target;
 
-        if(this.data.message)
+        if (this.data.message)
             this.data.message.innerHTML = this.target != null ? this.target.components.target.getMessage() : "";
     },
 
@@ -68,6 +70,15 @@ AFRAME.registerComponent('gameplay', {
 
         distance = Math.round(distance);
 
-        this.data.distance  .innerHTML = distance + unit;
+        this.data.distance.innerHTML = distance + unit;
     },
+
+    showCredits: function () {
+        if (!this.data.credits) return;
+
+        var credits = this.currentTarget + 1;
+        var count = this.data.targets.length;
+
+        this.data.credits.innerHtml = credits + " / " + count;
+    }
 });
