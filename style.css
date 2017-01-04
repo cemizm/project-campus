@@ -20,15 +20,14 @@ a {
 }
 
 #message_box .header {
-    position: relative;
     width: 100%;
     font-weight: bold;
     font-size: 16px;
     background-color: rgba(0, 0, 0, 0.2);
-    padding: 3px;
+    margin: 5px;
 }
 #message_box #message {
-    padding: 3px;
+    margin: 5px;
 }
 
 #bottom_box {
