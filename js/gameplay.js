@@ -68,6 +68,6 @@ AFRAME.registerComponent('gameplay', {
 
         distance = Math.round(distance);
 
-        this.data.distance.innerHTML = distance + unit;
+        this.data.distance  .innerHTML = distance + unit;
     },
 });
