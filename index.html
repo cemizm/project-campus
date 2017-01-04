@@ -7,6 +7,7 @@
     <script src="lib/CSS3DArgonRenderer.js"></script>
     <script src="lib/CSS3DArgonHUD.js"></script>
     <script src="lib/aframe-look-at-component.js"></script>
+    <script src="lib/aframe-mouse-cursor-component.min.js"></script>
     <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="splash.css">
@@ -14,6 +15,9 @@
 <body>
 <div hidden>
     <div id="box_distance" class="boxface">Text</div>
+    <div id="box_message" class="boxface">Text</div>
+    <div id="box_1" class="boxface">
+    </div>
 </div>
 <div id="loader-wrapper">
     <div class="splashtext">
@@ -24,7 +28,9 @@
     <div class="loader-section section-left"></div>
     <div class="loader-section section-right"></div>
 </div>
-<ar-scene vuforiakey="#vuforiakey" vuforiadataset__campus="src:url(resources/datasets/database.xml);">
+<ar-scene vuforiakey="#vuforiakey"
+          vuforiadataset__campus="src:url(resources/datasets/database.xml);"
+          gameplay="targets: ar-geopose[target]; hud: #box_distance; ">
     <a-assets>
         <a-asset-item id="vuforiakey" src="key.txt"></a-asset-item>
         <a-asset-item id="arrow-obj" src="resources/arrow.obj"></a-asset-item>
@@ -44,19 +50,40 @@
         <a-entity obj-model="obj: #cube-obj"></a-entity>
     </a-entity>
 
-    <ar-geopose class="targets" lla="8.907355 52.296265" useraltitutde></ar-geopose>
-    <ar-geopose class="targets" lla="8.906016 52.295979" useraltitutde></ar-geopose>
-    <ar-geopose class="targets" lla="8.905321 52.296530" useraltitutde></ar-geopose>
+    <ar-geopose lla="8.588700 51.998725" lla="8.907355 52.296265" target="distance: 25; text:Dies ist der Hinweis der gezeigt wird wenn das Ziel erreicht wird. Der Text kann
+        beliebig lang sein oder auch nicht."></ar-geopose>
+    <ar-geopose lla="8.906016 52.295979" target></ar-geopose>
+    <ar-geopose lla="8.905321 52.296530" target></ar-geopose>
 
     <ar-camera>
-        <a-entity position="0 -0.2 -1" track>
-            <a-entity scale="0.01 0.01 0.01" rotation="0 180 0"
-                      obj-model="obj: #arrow-obj; mtl: #arrow-mtl"></a-entity>
+        <a-entity on-target="visible: false">
+
+            <!--a-entity position="0 -0.2 -1" css-object="div: #box_distance" scale="0.005 0.005 0.005"></a-entity-->
+
+            <a-entity position="0 0.3 -1" track>
+                <a-entity scale="0.01 0.01 0.01" rotation="0 180 0"
+                          obj-model="obj: #arrow-obj; mtl: #arrow-mtl"></a-entity>
+            </a-entity>
         </a-entity>
 
-        <a-entity position="0 -0.2 -1" css-object="div: #box_distance" scale="0.005 0.005 0.005"></a-entity>
+        <a-entity cursor="fuse: true; maxDistance: 30; timeout: 500"
+                  position="0 0 -5"
+                  geometry="primitive: ring"
+                  material="color: white; shader: flat"></a-entity>
+
+        <a-box position="0 0 -2" rotation="30 30 0" color="skyblue" roughness="0.8" click-listener>
+        </a-box>
+
+        <a-entity position="0 0 -1" on-target="visible:true" css-object="div: #box_message"
+                  scale="0.001 0.001 0.001" click-listener></a-entity>
+
     </ar-camera>
 </ar-scene>
 <script src="app.js"></script>
+<script src="js/track.js"></script>
+<script src="js/target.js"></script>
+<script src="js/on-target.js"></script>
+<script src="js/click-listener.js"></script>
+<script src="js/gameplay.js"></script>
 </body>
 </html>
