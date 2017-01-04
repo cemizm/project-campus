@@ -3,10 +3,12 @@
  */
 
 AFRAME.registerComponent('gameplay', {
-    target:  null,
+    target: null,
+    entered: false,
     schema: {
         targets: {type: 'selectorAll'},
-        textbox: {type: 'selector'},
+        distance: {type: 'selector'},
+        credits: {type: 'selector'},
         message: {type: 'selector'},
     },
 
@@ -16,18 +18,25 @@ AFRAME.registerComponent('gameplay', {
     },
 
     tick: function (t) {
-        if(!this.target) return;
+        if (!this.target) return;
 
-        var distance = this.target.components.target.getDistance();
+        var tarComp = this.target.components.target;
 
-        this.showDistance(distance);
+        var distance = tarComp.getDistance();
+
+        this.showDistance(tarComp.isEntered() ? 0 : distance);
+        this.showCredits();
+
+        if (!this.entered && tarComp.isEntered()) {
+            this.showText(true, tarComp.getMessage());
+        }
     },
 
     getCurrentTarget: function () {
         return this.target;
     },
 
-    update: function() {
+    update: function () {
         this.updateTarget();
     },
 
@@ -43,21 +52,22 @@ AFRAME.registerComponent('gameplay', {
         this.updateTarget();
     },
 
-    updateTarget: function() {
+    updateTarget: function () {
         this.setTarget(this.run ? this.data.targets[this.currentTarget] : null);
     },
 
-    setTarget: function(target){
-        if(target == this.target) return;
+    setTarget: function (target) {
+        if (target == this.target) return;
 
+        this.showText(false, null);
         this.target = target;
 
-        if(this.data.message)
+        if (this.data.message)
             this.data.message.innerHTML = this.target != null ? this.target.components.target.getMessage() : "";
     },
 
     showDistance: function (distance) {
-        if (!this.data.textbox) return;
+        if (!this.data.distance) return;
 
         var unit = " m";
         if (distance > 1000) {
@@ -67,6 +77,26 @@ AFRAME.registerComponent('gameplay', {
 
         distance = Math.round(distance);
 
-        this.data.textbox.innerHTML = distance + unit;
+        this.data.distance.innerHTML = distance + unit;
     },
+
+    showCredits: function () {
+        if (!this.data.credits) return;
+
+        var credits = this.currentTarget + 1;
+        var count = this.data.targets.length;
+
+        var text = credits + " / " + count;
+
+        this.data.credits.innerHTML = text;
+    },
+
+    showText: function (entered, text) {
+        this.entered = entered;
+
+        if (!this.data.message) return;
+
+        this.data.message.innerHTML = text;
+        this.data.message.style.display = this.entered ? 'block' : 'none';
+    }
 });

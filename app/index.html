@@ -7,18 +7,12 @@
     <script src="lib/CSS3DArgonRenderer.js"></script>
     <script src="lib/CSS3DArgonHUD.js"></script>
     <script src="lib/aframe-look-at-component.js"></script>
+    <script src="lib/aframe-mouse-cursor-component.min.js"></script>
     <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="splash.css">
 </head>
 <body>
-<div hidden>
-    <div id="box_distance" class="boxface">Text</div>
-    <div id="box_message" class="boxface">Text</div>
-    <div id="box_1" class="boxface">Dies ist der Hinweis der gezeigt wird wenn das Ziel erreicht wird. Der Text kann
-        beliebig lang sein oder auch nicht.
-    </div>
-</div>
 <div id="loader-wrapper">
     <div class="splashtext">
         <h1>Campus Minden</h1>
@@ -28,9 +22,21 @@
     <div class="loader-section section-left"></div>
     <div class="loader-section section-right"></div>
 </div>
+<div id="message_box">
+    <div class="header">
+        <p>Hinweis</p>
+    </div>
+    <div id="message">
+        <p>
+            Dies ist der Hinweis der gezeigt wird wenn das Ziel erreicht wird. Der Text kann beliebig lang sein oder
+            auch nicht.
+        </p>
+        <a onclick="document.getElementById('message_box').style.display='none'">OK</a>
+    </div>
+</div>
 <ar-scene vuforiakey="#vuforiakey"
           vuforiadataset__campus="src:url(resources/datasets/database.xml);"
-          gameplay="targets: ar-geopose[target]; textbox: #box_distance; ">
+          gameplay="targets: ar-geopose[target]; distance: #distance; credits: #credits; message: #messages">
     <a-assets>
         <a-asset-item id="vuforiakey" src="key.txt"></a-asset-item>
         <a-asset-item id="arrow-obj" src="resources/arrow.obj"></a-asset-item>
@@ -50,24 +56,37 @@
         <a-entity obj-model="obj: #cube-obj"></a-entity>
     </a-entity>
 
-    <ar-geopose lla="8.588700 51.998725" lla="8.907355 52.296265" target="distance: 25"></ar-geopose>
+    <ar-geopose lla="8.907355 52.296265" target="distance: 25; text:Dies ist der Hinweis der gezeigt wird wenn das Ziel erreicht wird. Der Text kann
+        beliebig lang sein oder auch nicht."></ar-geopose>
     <ar-geopose lla="8.906016 52.295979" target></ar-geopose>
     <ar-geopose lla="8.905321 52.296530" target></ar-geopose>
 
-    <ar-geopose position="0 0 0" css-object="div: #box_1" scale="0.005 0.005 0.005" billboard></ar-geopose>
-
     <ar-camera>
-        <a-entity on-target="visible: false">
-
-            <a-entity position="0 -0.2 -1" css-object="div: #box_distance" scale="0.005 0.005 0.005"></a-entity>
-
-            <a-entity position="0 -0.2 -1" track>
-                <a-entity scale="0.01 0.01 0.01" rotation="0 180 0"
-                          obj-model="obj: #arrow-obj; mtl: #arrow-mtl"></a-entity>
-            </a-entity>
+        <a-entity position="0 0.3 -1" track on-target="visible: false">
+            <a-entity scale="0.01 0.01 0.01" rotation="0 180 0"
+                      obj-model="obj: #arrow-obj; mtl: #arrow-mtl"></a-entity>
         </a-entity>
+
+        <a-entity cursor="fuse: true; maxDistance: 30; timeout: 500"
+                  position="0 0 -25"
+                  geometry="primitive: ring"
+                  material="color: white; shader: flat"
+                  on-target="visible: true"></a-entity>
     </ar-camera>
 </ar-scene>
+<div id="bottom_box">
+    <table>
+        <tr>
+            <td><img src="resources/distance.png"></td>
+            <td><img src="resources/distance.png"></td>
+        </tr>
+        <tr>
+            <td id="distance">100 m</td>
+            <td id="credits">1 / 10</td>
+        </tr>
+    </table>
+</div>
+
 <script src="app.js"></script>
 <script src="js/track.js"></script>
 <script src="js/target.js"></script>
