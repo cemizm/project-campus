@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
   <Tracking>
+    <ImageTarget name="tuuerKomplett" size="2.000000 1.500310" />
+    <ImageTarget name="tuerAusschnitt" size="1.000000 0.750155" />
+    <ImageTarget name="springbrunnen" size="1.000000 0.750155" />
+    <ImageTarget name="qRCode" size="0.500000 0.375077" />
+    <ImageTarget name="pferderanbinder" size="0.500000 0.375077" />
+    <ImageTarget name="holzkonstrukt" size="1.000000 0.750155" />
+    <ImageTarget name="denkmal2" size="0.500000 0.375077" />
+    <ImageTarget name="denkmal" size="0.500000 0.375077" />
+    <ImageTarget name="cellCube" size="1.000000 0.750155" />
+    <ImageTarget name="briefkasten" size="1.000000 0.750155" />
+    <ImageTarget name="blindenstrich" size="1.000000 0.750155" />
     <ImageTarget name="buildingF" size="1.000000 1.779359" />
     <ImageTarget name="fhSchildCropped" size="1.000000 0.395494" />
     <ImageTarget name="fhSchild" size="1.000000 0.750000" />
