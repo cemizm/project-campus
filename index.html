@@ -14,10 +14,6 @@
 </head>
 <body>
 <div hidden>
-    <div id="box_distance" class="boxface">Text</div>
-    <div id="box_message" class="boxface">Text</div>
-    <div id="box_1" class="boxface">
-    </div>
 </div>
 <div id="loader-wrapper">
     <div class="splashtext">
@@ -30,7 +26,7 @@
 </div>
 <ar-scene vuforiakey="#vuforiakey"
           vuforiadataset__campus="src:url(resources/datasets/database.xml);"
-          gameplay="targets: ar-geopose[target]; hud: #box_distance; ">
+          gameplay="targets: ar-geopose[target];">
     <a-assets>
         <a-asset-item id="vuforiakey" src="key.txt"></a-asset-item>
         <a-asset-item id="arrow-obj" src="resources/arrow.obj"></a-asset-item>
