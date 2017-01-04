@@ -6,7 +6,8 @@ AFRAME.registerComponent('gameplay', {
     target:  null,
     schema: {
         targets: {type: 'selectorAll'},
-        hud: {type: 'selector'},
+        distance: {type: 'selector'},
+        credits:{type: 'selector'},
         message: {type: 'selector'},
     },
 
