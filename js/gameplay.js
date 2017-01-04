@@ -58,7 +58,7 @@ AFRAME.registerComponent('gameplay', {
     },
 
     showDistance: function (distance) {
-        if (!this.data.hud) return;
+        if (!this.data.distance) return;
 
         var unit = " m";
         if (distance > 1000) {
@@ -68,6 +68,6 @@ AFRAME.registerComponent('gameplay', {
 
         distance = Math.round(distance);
 
-        this.data.hud.innerHTML = distance + unit;
+        this.data.distance.innerHTML = distance + unit;
     },
 });
