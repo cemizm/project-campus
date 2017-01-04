@@ -22,7 +22,7 @@ a {
     width: 100%;
     font-weight: bold;
     font-size: 16px;
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.4);
 }
 #message_box p {
     margin: 0px;
