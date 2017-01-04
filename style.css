@@ -8,7 +8,7 @@ a {
 }
 
 #message_box {
-    z-index: 1000;
+    z-index: 999;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -26,7 +26,8 @@ a {
     background-color: rgba(0, 0, 0, 0.2);
 }
 #message_box p {
-    margin: 5px;
+    margin: 0px;
+    padding: 5px;
 }
 
 #bottom_box {
