@@ -38,7 +38,7 @@ a {
 
 #message_box input {
     height: 40px;
-    width: 80px;
+    width: 100%;
     padding: 0;
     font-size: 22px;
     color: white;

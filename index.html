@@ -31,12 +31,12 @@
             Dies ist der Hinweis der gezeigt wird wenn das Ziel erreicht wird. Der Text kann beliebig lang sein oder
             auch nicht.
         </p>
-        <input type="submit" value="OK">
+        <input value="OK" onclick="document.getElementById('message_box').style.display='none'">
     </div>
 </div>
 <ar-scene vuforiakey="#vuforiakey"
           vuforiadataset__campus="src:url(resources/datasets/database.xml);"
-          gameplay="targets: ar-geopose[target]; distance: #distance; credits: #credits; message: #messages;">
+          gameplay="targets: ar-geopose[target]; distance: #distance; credits: #credits; message: #messages; button: #accept">
     <a-assets>
         <a-asset-item id="vuforiakey" src="key.txt"></a-asset-item>
         <a-asset-item id="arrow-obj" src="resources/arrow.obj"></a-asset-item>
