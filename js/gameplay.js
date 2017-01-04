@@ -24,11 +24,11 @@ AFRAME.registerComponent('gameplay', {
 
         var distance = tarComp.getDistance();
 
-        this.showDistance(distance);
+        this.showDistance(tarComp.isEntered() ? 0 : distance);
         this.showCredits();
 
         if (!this.entered && tarComp.isEntered()) {
-            this.showText()
+            this.showText(tarComp.getMessage());
         }
 
     },
@@ -94,6 +94,9 @@ AFRAME.registerComponent('gameplay', {
 
     showText: function (text) {
         this.entered = text != null;
+
+        if(!this.data.message) return;
+
         this.data.message.innerHTML = text;
         this.data.message.style.display = this.entered ? 'block' : 'none';
     }
