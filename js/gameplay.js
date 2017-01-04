@@ -10,7 +10,6 @@ AFRAME.registerComponent('gameplay', {
         distance: {type: 'selector'},
         credits: {type: 'selector'},
         message: {type: 'selector'},
-        button: {type: 'selector'},
     },
 
     init: function () {
@@ -54,12 +53,6 @@ AFRAME.registerComponent('gameplay', {
     },
 
     updateTarget: function () {
-        if (this.data.button) {
-            this.data.button.onclick = function () {
-
-            };
-        }
-
         this.setTarget(this.run ? this.data.targets[this.currentTarget] : null);
     },
 
