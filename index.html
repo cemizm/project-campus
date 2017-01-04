@@ -36,7 +36,7 @@
 </div>
 <ar-scene vuforiakey="#vuforiakey"
           vuforiadataset__campus="src:url(resources/datasets/dataset.xml);"
-          gameplay="targets: ar-geopose[target]; distance: #distance; credits: #credits; message: #messages">
+          gameplay="targets: ar-geopose[target]; distance: #distance; credits: #credits; message: #message_box">
     <a-assets>
         <a-asset-item id="vuforiakey" src="key.txt"></a-asset-item>
         <a-asset-item id="arrow-obj" src="resources/arrow.obj"></a-asset-item>
@@ -59,7 +59,7 @@
     <a-entity referenceframe="parent: vuforia.campus.qRCode" position="0 0 0" rotation="0 0 0">
         <a-entity obj-model="obj: #cube-obj"></a-entity>
     </a-entity>
-    
+
     <a-entity referenceframe="parent: vuforia.campus.denkmal" position="0 0 0" rotation="0 0 0">
         <a-entity obj-model="obj: #cube-obj"></a-entity>
     </a-entity>
@@ -76,8 +76,8 @@
         <a-entity obj-model="obj: #cube-obj"></a-entity>
     </a-entity>
 
-    <!--Test-->
-    <ar-geopose lla="8.904821 52.296644" target="distance: 10"></ar-geopose>
+    <!--Printer-->
+    <ar-geopose lla="8.904912 52.296664" target="distance: 3"></ar-geopose>
 
 	<!--FH-SChild-->
     <ar-geopose lla="8.907355 52.296265" target="distance: 10"></ar-geopose>
