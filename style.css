@@ -36,7 +36,7 @@ a {
     padding-bottom: 15px;
 }
 
-#message_box input {
+#message_box a {
     height: 40px;
     width: 100%;
     padding: 0;
@@ -49,6 +49,9 @@ a {
     border-bottom: 2px solid #2475ab;
     -webkit-box-shadow: inset 0 -2px #2475ab;
     box-shadow: inset 0 -2px #2475ab;
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
 }
 
 #bottom_box {
