@@ -21,10 +21,11 @@ a {
 #message_box .header {
     width: 100%;
     font-weight: bold;
-    font-size: 16px;
+    font-size: 22px;
     background-color: rgba(0, 0, 0, 0.4);
 }
 #message_box p {
+    font-size: 18px;
     margin: 0px;
     padding: 5px;
 }
