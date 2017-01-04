@@ -4,6 +4,7 @@
 
 AFRAME.registerComponent('gameplay', {
     target: null,
+    entered: false,
     schema: {
         targets: {type: 'selectorAll'},
         distance: {type: 'selector'},
@@ -19,11 +20,17 @@ AFRAME.registerComponent('gameplay', {
     tick: function (t) {
         if (!this.target) return;
 
-        var distance = this.target.components.target.getDistance();
+        var tarComp = this.target.components.target;
 
+        var distance = tarComp.getDistance();
 
         this.showDistance(distance);
         this.showCredits();
+
+        if (!this.entered && tarComp.isEntered()) {
+            this.showText()
+        }
+
     },
 
     getCurrentTarget: function () {
@@ -53,6 +60,7 @@ AFRAME.registerComponent('gameplay', {
     setTarget: function (target) {
         if (target == this.target) return;
 
+        this.entered = false;
         this.target = target;
 
         if (this.data.message)
@@ -82,5 +90,11 @@ AFRAME.registerComponent('gameplay', {
         var text = credits + " / " + count;
 
         this.data.credits.innerHTML = text;
+    },
+
+    showText: function (text) {
+        this.entered = text != null;
+        this.data.message.innerHTML = text;
+        this.data.message.style.display = this.entered ? 'block' : 'none';
     }
 });
