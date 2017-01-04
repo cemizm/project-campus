@@ -81,8 +81,6 @@ AFRAME.registerComponent('gameplay', {
 
         var text = credits + " / " + count;
 
-        console.log("text: " + text);
-
-        this.data.credits.innerHtml = text;
+        this.data.credits.innerHTML = text;
     }
 });
