@@ -9,6 +9,7 @@ a {
 
 
 #message_box {
+    z-index: 1000;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -16,6 +17,15 @@ a {
     transform: translate(-50%, -50%);
     width: 80%;
     height: 80%;
+    background-color: rgba(255, 255, 255, 0.4);
+
+}
+
+#message_box .header {
+    position: relative;
+    width: 100%;
+    font-weight: bold;
+    font-size: 14px;
 }
 
 #bottom_box {

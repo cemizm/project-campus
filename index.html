@@ -23,15 +23,17 @@
     <div class="loader-section section-right"></div>
 </div>
 <div id="message_box">
-    Dies ist der Hinweis der gezeigt wird wenn das Ziel erreicht wird. Der Text kann
-    beliebig lang sein oder auch nicht.
-    <div>
-
+    <div class="header">
+        Hinweis
+    </div>
+    <div id="message">
+        Dies ist der Hinweis der gezeigt wird wenn das Ziel erreicht wird. Der Text kann
+        beliebig lang sein oder auch nicht.
     </div>
 </div>
 <ar-scene vuforiakey="#vuforiakey"
           vuforiadataset__campus="src:url(resources/datasets/database.xml);"
-          gameplay="targets: ar-geopose[target]; distance: #distance; credits: #credits; message: #message_box;">
+          gameplay="targets: ar-geopose[target]; distance: #distance; credits: #credits; message: #messages;">
     <a-assets>
         <a-asset-item id="vuforiakey" src="key.txt"></a-asset-item>
         <a-asset-item id="arrow-obj" src="resources/arrow.obj"></a-asset-item>
