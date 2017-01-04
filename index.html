@@ -44,6 +44,10 @@
         <a-asset-item id="cube-obj" src="resources/cube.obj"></a-asset-item>
     </a-assets>
 
+    <a-entity referenceframe="parent: vuforia.campus.druckeranleitung" position="0 0 0" rotation="0 0 0">
+        <a-entity obj-model="obj: #cube-obj"></a-entity>
+    </a-entity>
+
     <a-entity referenceframe="parent: vuforia.campus.fhSchild" position="0 0 0" rotation="0 0 0">
         <a-entity obj-model="obj: #cube-obj"></a-entity>
     </a-entity>
@@ -75,6 +79,9 @@
     <a-entity referenceframe="parent: vuforia.campus.blindenstrich" position="0 0 0" rotation="0 0 0">
         <a-entity obj-model="obj: #cube-obj"></a-entity>
     </a-entity>
+
+    <!--Test-->
+    <ar-geopose lla="8.904821 52.296644" target="distance: 10"></ar-geopose>
 
 	<!--FH-SChild-->
     <ar-geopose lla="8.907355 52.296265" target="distance: 10"></ar-geopose>
