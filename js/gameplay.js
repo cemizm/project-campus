@@ -74,8 +74,10 @@ AFRAME.registerComponent('gameplay', {
     },
 
     showCredits: function () {
+        console.log("here");
         if (!this.data.credits) return;
 
+        console.log("not here");
         var credits = this.currentTarget + 1;
         var count = this.data.targets.length;
 
