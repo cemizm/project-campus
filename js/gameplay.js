@@ -28,9 +28,8 @@ AFRAME.registerComponent('gameplay', {
         this.showCredits();
 
         if (!this.entered && tarComp.isEntered()) {
-            this.showText(tarComp.getMessage());
+            this.showText(true, tarComp.getMessage());
         }
-
     },
 
     getCurrentTarget: function () {
@@ -60,7 +59,7 @@ AFRAME.registerComponent('gameplay', {
     setTarget: function (target) {
         if (target == this.target) return;
 
-        this.entered = false;
+        this.showText(false, null);
         this.target = target;
 
         if (this.data.message)
@@ -92,8 +91,8 @@ AFRAME.registerComponent('gameplay', {
         this.data.credits.innerHTML = text;
     },
 
-    showText: function (text) {
-        this.entered = text != null;
+    showText: function (entered, text) {
+        this.entered = entered;
 
         if(!this.data.message) return;
 
