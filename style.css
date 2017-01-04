@@ -41,11 +41,14 @@ a {
     -webkit-backdrop-filter: blur(5px);
 }
 
-#bottom_box .info {
+#bottom_box table {
+    width: 100%;
+}
+#bottom_box td {
     width: 50%;
-    text-align: center;
+    padding: 5px;
 }
 
 #bottom_box img {
-    margin: 10px;
+    height: 50px;
 }
