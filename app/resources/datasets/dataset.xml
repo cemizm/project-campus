@@ -2,6 +2,7 @@
 <QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
   <Tracking>
     <ImageTarget name="tuuerKomplett" size="2.000000 1.500310" />
+    <ImageTarget name="druckeranleitung" size="0.200000 0.150000" />
     <ImageTarget name="tuerAusschnitt" size="1.000000 0.750155" />
     <ImageTarget name="springbrunnen" size="1.000000 0.750155" />
     <ImageTarget name="qRCode" size="0.500000 0.375077" />
