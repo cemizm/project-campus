@@ -55,7 +55,19 @@
         <p>Hinweis</p>
     </div>
     <div class="body">
-        <div id="message" class="content">
+        <div class="content">
+            Dies ist der Hinweis der gezeigt wird wenn das Ziel erreicht wird. Der Text kann beliebig lang sein oder
+            auch nicht.
+        </div>
+        <a onclick="close_message">OK</a>
+    </div>
+</div>
+<div id="question_box" class="box">
+    <div class="header">
+        <p>Project Campus</p>
+    </div>
+    <div class="body">
+        <div class="content">
             Dies ist der Hinweis der gezeigt wird wenn das Ziel erreicht wird. Der Text kann beliebig lang sein oder
             auch nicht.
         </div>
@@ -64,7 +76,8 @@
 </div>
 <ar-scene vuforiakey="#vuforiakey"
           vuforiadataset__campus="src:url(resources/datasets/dataset.xml);"
-          gameplay="targets: ar-geopose[target]; distance: #distance; credits: #credits; message: #message">
+          gameplay="targets: ar-geopose[target]; distance: #distance; credits: #credits;
+                    message: #message_box; question: #question_box">
     <a-assets>
         <a-asset-item id="vuforiakey" src="key.txt"></a-asset-item>
         <a-asset-item id="arrow-obj" src="resources/arrow.obj"></a-asset-item>

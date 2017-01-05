@@ -10,6 +10,7 @@ AFRAME.registerComponent('gameplay', {
         distance: {type: 'selector'},
         credits: {type: 'selector'},
         message: {type: 'selector'},
+        question: {type: 'selector'},
     },
 
     init: function () {
@@ -52,7 +53,7 @@ AFRAME.registerComponent('gameplay', {
         this.updateTarget();
     },
 
-    restart: function() {
+    restart: function () {
         this.currentTarget = 0;
         this.updateTarget();
     },
@@ -89,10 +90,6 @@ AFRAME.registerComponent('gameplay', {
         this.data.credits.innerHTML = text;
     },
 
-    isIntro: function() {
-        return this.currentTarget == 0;
-    },
-
     showHint: function () {
         if (!this.target) return;
 
@@ -106,12 +103,21 @@ AFRAME.registerComponent('gameplay', {
         this.entered = entered;
 
         if (!text) text = "Sie haben das nächste Puzzlestück erreicht. ";
-
-        this.data.message.innerHTML = entered ? text : "";
-        this.data.message.style.display = this.entered ? 'block' : 'none';
+        this.showContent(this.data.message, entered, text);
     },
 
     closeText: function () {
         this.data.message.style.display = 'none';
+    },
+
+    showContent: function (element, show, content) {
+        var content = element.getElementsByClassName("content");
+
+        if (!content || content.length == 0) return;
+        content = content[0];
+
+        content.innerHTML = text;
+        element.style.display = show ? 'block' : 'none';
     }
+
 });
