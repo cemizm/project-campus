@@ -40,12 +40,23 @@ function close_message() {
 
 function show_message() {
     var gameplay = getGameplay();
-    gameplay.showTest(true, "asda asdasd asd");
+    gameplay.showHint();
+}
+
+function restart() {
+    var gameplay = getGameplay();
+    gameplay.showQuestion(false);
+    gameplay.restart();
+}
+
+function close_question() {
+    var gameplay = getGameplay();
+    gameplay.showQuestion(false);
 }
 
 function restartGame() {
     var gameplay = getGameplay();
-    gameplay.restart();
+    gameplay.showQuestion(true, "Wollen Sie Campus Tour wirklich von vorne beginnen?")
 }
 
 helpbox(true);

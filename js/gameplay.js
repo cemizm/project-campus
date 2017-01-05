@@ -97,15 +97,16 @@ AFRAME.registerComponent('gameplay', {
     showHint: function () {
         if (!this.target) return;
 
-        var tarComp = this.target.components.target;
-        if (!tarComp || !tarComp.isEntered()) return;
+        var text = "Bitte folge dem Pfeil zum nächsten Rästel.";
 
-        this.showContent(this.data.message, true, tarComp.getMessage());
+        var tarComp = this.target.components.target;
+        if (tarComp && tarComp.isEntered()) text = tarComp.getMessage();
+
+        this.showContent(this.data.message, true, text);
     },
 
-    showTest: function (entered, text) {
-        if (!text) text = "Sie haben das nächste Puzzlestück erreicht. ";
-        this.showContent(this.data.message, entered, text);
+    showQuestion: function(show, question) {
+        this.showContent(this.data.question, show, question);
     },
 
     closeText: function () {

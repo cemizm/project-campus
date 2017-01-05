@@ -53,6 +53,11 @@ a {
     border: 0;
 }
 
+.box table {
+    width: 100%;
+    border-spacing: 0px;
+}
+
 #bottom_box {
     pointer-events: auto;
     position: absolute;

@@ -71,7 +71,12 @@
             Dies ist der Hinweis der gezeigt wird wenn das Ziel erreicht wird. Der Text kann beliebig lang sein oder
             auch nicht.
         </div>
-        <a onclick="close_message">OK</a>
+        <table>
+            <tr>
+                <td style="width: 50%"><a onclick="restart()">OK</a></td>
+                <td style="width: 50%"><a onclick="close_question()">Abbrechen</a></td>
+            </tr>
+        </table>
     </div>
 </div>
 <ar-scene vuforiakey="#vuforiakey"
@@ -158,7 +163,7 @@
 <div id="bottom_box">
     <table>
         <tr>
-            <td  style="border-right: 1px solid darkgray;"><img src="resources/distance.png"></td>
+            <td style="border-right: 1px solid darkgray;"><img src="resources/distance.png"></td>
             <td><img src="resources/credits.png"></td>
             <td class="menu" rowspan="2">
                 <table>
@@ -174,8 +179,8 @@
                 </table>
             </td>
         </tr>
-        <tr style="background-color: rgba(0,0,0,0.1); ">
-            <td id="distance" style="height: 25px;border-right: 1px solid darkgray;"></td>
+        <tr style="background-color: rgba(0,0,0,0.3); height: 10px;">
+            <td id="distance" style="border-right: 1px solid darkgray;"></td>
             <td id="credits"></td>
         </tr>
     </table>
