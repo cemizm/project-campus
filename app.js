@@ -49,9 +49,6 @@ function show_message() {
 
 function restartGame() {
     var gameplay = getGameplay();
-
-    if (gameplay.isIntro()) return helpbox(true);
-
     gameplay.restart();
 }
 
