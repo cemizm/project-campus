@@ -49,9 +49,12 @@ AFRAME.registerComponent('gameplay', {
     },
 
     play: function () {
-        this.run = true;
 
         this.updateTarget();
+    },
+
+    run: function() {
+        this.run = true;
     },
 
     restart: function () {
