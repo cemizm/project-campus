@@ -55,7 +55,7 @@ function close_question() {
 
 function restartGame() {
     var gameplay = getGameplay();
-    gameplay.showQuestion(true, "Wollen Sie Campus Tour wirklich von vorne beginnen?")
+    gameplay.showQuestion(true, "<p>Wollen Sie Campus Tour wirklich von vorne beginnen?</p>")
 }
 
 helpbox(true);

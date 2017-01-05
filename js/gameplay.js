@@ -98,7 +98,7 @@ AFRAME.registerComponent('gameplay', {
     showHint: function () {
         if (!this.target) return;
 
-        var text = "Bitte folge dem Pfeil zum nächsten Rästel.";
+        var text = "<p>Bitte folge dem Pfeil zum nächsten Rästel.</p>";
 
         var tarComp = this.target.components.target;
         if (tarComp && tarComp.isEntered()) text = tarComp.getMessage();
