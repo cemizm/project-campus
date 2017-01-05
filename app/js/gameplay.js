@@ -10,6 +10,7 @@ AFRAME.registerComponent('gameplay', {
         distance: {type: 'selector'},
         credits: {type: 'selector'},
         message: {type: 'selector'},
+        question: {type: 'selector'},
     },
 
     init: function () {
@@ -18,17 +19,18 @@ AFRAME.registerComponent('gameplay', {
     },
 
     tick: function (t) {
-        if (!this.target) return;
+        if (!this.run || !this.target) return;
 
         var tarComp = this.target.components.target;
 
         var distance = tarComp.getDistance();
 
-        this.showDistance(tarComp.isEntered() ? 0 : distance);
+        this.showDistance(tarComp.isEntered() ? null : distance);
         this.showCredits();
 
         if (!this.entered && tarComp.isEntered()) {
-            this.showText(true, tarComp.getMessage());
+            this.entered = true;
+            this.showContent(this.data.message, true, tarComp.getMessage());
         }
     },
 
@@ -42,13 +44,21 @@ AFRAME.registerComponent('gameplay', {
 
     pause: function () {
         this.run = false;
-
         this.updateTarget();
     },
 
     play: function () {
-        this.run = true;
+        this.updateTarget();
+    },
 
+    start: function () {
+        this.run = true;
+        this.updateTarget();
+    },
+
+    restart: function () {
+        this.showQuestion(false);
+        this.currentTarget = 0;
         this.updateTarget();
     },
 
@@ -58,16 +68,14 @@ AFRAME.registerComponent('gameplay', {
 
     setTarget: function (target) {
         if (target == this.target) return;
-
-        this.showText(false, null);
         this.target = target;
-
-        if (this.data.message)
-            this.data.message.innerHTML = this.target != null ? this.target.components.target.getMessage() : "";
+        this.showContent(this.data.message, false, null);
+        this.showContent(this.data.question, false, null);
     },
 
     showDistance: function (distance) {
         if (!this.data.distance) return;
+        if (!distance) return this.data.distance.innerHTML = "Suchen...";
 
         var unit = " m";
         if (distance > 1000) {
@@ -83,20 +91,38 @@ AFRAME.registerComponent('gameplay', {
     showCredits: function () {
         if (!this.data.credits) return;
 
-        var credits = this.currentTarget + 1;
-        var count = this.data.targets.length;
-
-        var text = credits + " / " + count;
+        var text = this.currentTarget + " / " + this.data.targets.length;
 
         this.data.credits.innerHTML = text;
     },
 
-    showText: function (entered, text) {
-        this.entered = entered;
+    showHint: function () {
+        if (!this.target) return;
 
-        if (!this.data.message) return;
+        var text = "<p>Bitte folge dem Pfeil zum nächsten Rätsel.</p>";
 
-        this.data.message.innerHTML = text;
-        this.data.message.style.display = this.entered ? 'block' : 'none';
+        var tarComp = this.target.components.target;
+        if (tarComp && tarComp.isEntered()) text = tarComp.getMessage();
+
+        this.showContent(this.data.message, true, text);
+    },
+
+    showQuestion: function (show, question) {
+        this.showContent(this.data.question, show, question);
+    },
+
+    closeText: function () {
+        this.showContent(this.data.message, false, "");
+    },
+
+    showContent: function (element, show, text) {
+        var content = element.getElementsByClassName("content");
+
+        if (!content || content.length == 0) return;
+        content = content[0];
+
+        content.innerHTML = text;
+        element.style.display = show ? 'block' : 'none';
     }
+
 });

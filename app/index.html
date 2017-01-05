@@ -15,28 +15,74 @@
 <body>
 <div id="loader-wrapper">
     <div class="splashtext">
-        <h1>Campus Minden</h1>
+        <h1>Project Campus</h1>
         <h2 id="status">App wird geladen...</h2>
     </div>
     <div id="loader"></div>
     <div class="loader-section section-left"></div>
     <div class="loader-section section-right"></div>
 </div>
-<div id="message_box">
+<div id="help_box" class="box">
+    <div class="header">
+        <p>Project Campus</p>
+    </div>
+    <div class="body">
+        <div class="content">
+            <div style="text-align: center;">
+                <img src="resources/campus.jpg" style="width: 100%; max-width: 200px" align="center">
+            </div>
+            <p>asd asd asd asd asd asd asd asd a
+                ds
+                as d
+                sa
+                dasdasdas
+                d as
+                d
+                asd
+                as asdas das lahlaksjhf lkdashf lakjf laksdjhf lkadsflkdsahf ladsjfalskjf as
+                as dföjflkjadsh lhljfadhsf ljds asödj hadöslf lkshf asd
+                fasdof adslhf lkasdf asd
+                fadsjf adsljkf adklsö fa
+                sd öadjsf aslödf löads fasd foasdf asd
+                fadsöfj adsöl fjadslkjf asd
+                fadslkjhf ads# fasjdf as#df asdlkbf as#</p>
+        </div>
+        <a onclick="helpbox(false)">OK</a>
+    </div>
+</div>
+<div id="message_box" class="box">
     <div class="header">
         <p>Hinweis</p>
     </div>
-    <div id="message">
-        <p>
+    <div class="body">
+        <div class="content">
             Dies ist der Hinweis der gezeigt wird wenn das Ziel erreicht wird. Der Text kann beliebig lang sein oder
             auch nicht.
-        </p>
-        <a onclick="document.getElementById('message_box').style.display='none'">OK</a>
+        </div>
+        <a onclick="close_message()">OK</a>
+    </div>
+</div>
+<div id="question_box" class="box">
+    <div class="header">
+        <p>Project Campus</p>
+    </div>
+    <div class="body">
+        <div class="content">
+            Dies ist der Hinweis der gezeigt wird wenn das Ziel erreicht wird. Der Text kann beliebig lang sein oder
+            auch nicht.
+        </div>
+        <table>
+            <tr>
+                <td style="width: 50%"><a onclick="restart()">OK</a></td>
+                <td style="width: 50%"><a onclick="close_question()">Abbrechen</a></td>
+            </tr>
+        </table>
     </div>
 </div>
 <ar-scene vuforiakey="#vuforiakey"
-          vuforiadataset__campus="src:url(resources/datasets/dataset.xml);"
-          gameplay="targets: ar-geopose[target]; distance: #distance; credits: #credits; message: #messages">
+          vuforiadataset__campus="src:url(resources/datasets/campus.xml);"
+          gameplay="targets: ar-geopose[target]; distance: #distance; credits: #credits;
+                    message: #message_box; question: #question_box">
     <a-assets>
         <a-asset-item id="vuforiakey" src="key.txt"></a-asset-item>
         <a-asset-item id="arrow-obj" src="resources/arrow.obj"></a-asset-item>
@@ -44,68 +90,71 @@
         <a-asset-item id="cube-obj" src="resources/cube.obj"></a-asset-item>
     </a-assets>
 
-    <a-entity referenceframe="parent: vuforia.campus.fhSchild" position="0 0 0" rotation="0 0 0">
-        <a-entity obj-model="obj: #cube-obj"></a-entity>
+    <a-entity referenceframe="parent: vuforia.campus.TestHome" position="0 0 0" rotation="0 0 0">
+        <a-entity obj-model="obj: #cube-obj" scale="0.05 0.05 0.05"></a-entity>
     </a-entity>
-    
-    <a-entity referenceframe="parent: vuforia.campus.tuuerKomplett" position="0 0 0" rotation="0 0 0">
-        <a-entity obj-model="obj: #cube-obj"></a-entity>
-    </a-entity>
-    
-    <a-entity referenceframe="parent: vuforia.campus.qRCode" position="0 0 0" rotation="0 0 0">
-        <a-entity obj-model="obj: #cube-obj"></a-entity>
-    </a-entity>
-    
-    <a-entity referenceframe="parent: vuforia.campus.pferdeanbinder" position="0 0 0" rotation="0 0 0">
-        <a-entity obj-model="obj: #cube-obj"></a-entity>
-    </a-entity>
-    
-    <a-entity referenceframe="parent: vuforia.campus.denkmal" position="0 0 0" rotation="0 0 0">
-        <a-entity obj-model="obj: #cube-obj"></a-entity>
-    </a-entity>
-    
-    <a-entity referenceframe="parent: vuforia.campus.cellCube" position="0 0 0" rotation="0 0 0">
-        <a-entity obj-model="obj: #cube-obj"></a-entity>
-    </a-entity>
-    
-    <a-entity referenceframe="parent: vuforia.campus.briefkasten" position="0 0 0" rotation="0 0 0">
-        <a-entity obj-model="obj: #cube-obj"></a-entity>
-    </a-entity>
-    
-    <a-entity referenceframe="parent: vuforia.campus.blindenstrich" position="0 0 0" rotation="0 0 0">
+
+    <a-entity referenceframe="parent: vuforia.campus.fhSchild">
         <a-entity obj-model="obj: #cube-obj"></a-entity>
     </a-entity>
 
-	<!--FH-SChild-->
+    <a-entity referenceframe="parent: vuforia.campus.tuuerKomplett">
+        <a-entity obj-model="obj: #cube-obj"></a-entity>
+    </a-entity>
+
+    <a-entity referenceframe="parent: vuforia.campus.qRCode">
+        <a-entity obj-model="obj: #cube-obj"></a-entity>
+    </a-entity>
+
+    <a-entity referenceframe="parent: vuforia.campus.denkmal">
+        <a-entity obj-model="obj: #cube-obj"></a-entity>
+    </a-entity>
+
+    <a-entity referenceframe="parent: vuforia.campus.cellCube">
+        <a-entity obj-model="obj: #cube-obj"></a-entity>
+    </a-entity>
+
+    <a-entity referenceframe="parent: vuforia.campus.briefkasten">
+        <a-entity obj-model="obj: #cube-obj"></a-entity>
+    </a-entity>
+
+    <a-entity referenceframe="parent: vuforia.campus.blindenstrich">
+        <a-entity obj-model="obj: #cube-obj"></a-entity>
+    </a-entity>
+
+    <!--Printer-->
+    <ar-geopose lla="8.588702 51.998721" target="distance: 20"></ar-geopose>
+
+    <!--FH-SChild-->
     <ar-geopose lla="8.907355 52.296265" target="distance: 10"></ar-geopose>
-    
+
     <!--FH A-Gebäude Tür-->
     <ar-geopose lla="8.906991 52.29599" target="distance: 5"></ar-geopose>
-    
+
     <!--QRCode-->
     <ar-geopose lla="8.906227 52.295956" target="distance: 15"></ar-geopose>
-    
+
     <!--CellCube-->
     <ar-geopose lla="8.904242 52.296303" target="distance: 10"></ar-geopose>
-    
+
     <!--Briefkasten-->
     <ar-geopose lla="8.904126 52.296764" target="distance: 10"></ar-geopose>
-    
+
     <!--Denkmal-->
     <ar-geopose lla="8.907 52.29582" target="distance: 5"></ar-geopose>
-    
+
     <!--Blindenstrich-->
     <ar-geopose lla="8.9052 52.29658" target="distance: 15"></ar-geopose>
-    
 
     <ar-camera>
-        <a-entity position="0 0.3 -1" track on-target="visible: false">
+        <a-entity position="0 0.4 -1.5" track on-target="visible: false">
             <a-entity scale="0.01 0.01 0.01" rotation="0 180 0"
                       obj-model="obj: #arrow-obj; mtl: #arrow-mtl"></a-entity>
         </a-entity>
 
-        <a-entity cursor="fuse: true; maxDistance: 30; timeout: 500"
-                  position="0 0 -25"
+        <a-entity cursor="fuse: true; maxDistance: 5; timeout: 500"
+                  position="0 0 -1"
+                  scale="0.03 0.03 0.03"
                   geometry="primitive: ring"
                   material="color: white; shader: flat"
                   on-target="visible: true"></a-entity>
@@ -115,15 +164,27 @@
     <table>
         <tr>
             <td><img src="resources/distance.png"></td>
-            <td><img src="resources/distance.png"></td>
+            <td><img src="resources/credits.png"></td>
+            <td class="menu" rowspan="2">
+                <table>
+                    <tr>
+                        <td onclick="show_message()"><i class="fa fa-map-marker" aria-hidden="true"></i></td>
+                    </tr>
+                    <tr>
+                        <td onclick="restartGame()"><i class="fa fa-refresh" aria-hidden="true"></i></td>
+                    </tr>
+                    <tr>
+                        <td onclick="helpbox(true)"><i class="fa fa-info" aria-hidden="true"></i></td>
+                    </tr>
+                </table>
+            </td>
         </tr>
-        <tr>
-            <td id="distance">100 m</td>
-            <td id="credits">1 / 10</td>
+        <tr class="nums">
+            <td id="distance"></td>
+            <td id="credits"></td>
         </tr>
     </table>
 </div>
-
 <script src="app.js"></script>
 <script src="js/track.js"></script>
 <script src="js/target.js"></script>
