@@ -60,30 +60,41 @@ a {
     bottom: 0;
     width: 100%;
     background-color: rgba(255, 255, 255, 0.4);
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    z-index: 999;
 }
 
 #bottom_box table {
     width: 100%;
+    border-spacing: 0px;
 }
 
 #bottom_box td {
-    width: 50%;
-    padding: 3px;
     text-align: center;
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
 }
 
 #bottom_box img {
     height: 50px;
 }
 
-#help_button {
-    z-index: 999;
-    position: absolute;
-    right: 0;
-    bottom: 0;
+#bottom_box .menu {
+    width: 40px;
 }
 
-#help_button img {
-    width: 40px;
-    height: 40px;
+#bottom_box .menu table {
+    height: 100px;
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+}
+
+#bottom_box .menu td {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
 }
