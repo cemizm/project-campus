@@ -7,15 +7,22 @@
     <script src="lib/CSS3DArgonRenderer.js"></script>
     <script src="lib/CSS3DArgonHUD.js"></script>
     <script src="lib/aframe-look-at-component.js"></script>
-    <script src="lib/aframe-mouse-cursor-component.min.js"></script>
     <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="splash.css">
 </head>
 <body>
+<div hidden>
+    <div id="hint_behindertenstrich">
+        <div style="text-align: center;">
+            <img src="resources/struktur.jpg" style="width: 100%; max-width: 200px" align="center">
+        </div>
+        <p>Suche die abgebildete Struktur!</p>
+    </div>
+</div>
 <div id="loader-wrapper">
     <div class="splashtext">
-        <h1>Campus Minden</h1>
+        <h1>Project Campus</h1>
         <h2 id="status">App wird geladen...</h2>
     </div>
     <div id="loader"></div>
@@ -31,21 +38,15 @@
             <div style="text-align: center;">
                 <img src="resources/campus.jpg" style="width: 100%; max-width: 200px" align="center">
             </div>
-            <p>asd asd asd asd asd asd asd asd a
-                ds
-                as d
-                sa
-                dasdasdas
-                d as
-                d
-                asd
-                as asdas das lahlaksjhf lkdashf lakjf laksdjhf lkadsflkdsahf ladsjfalskjf as
-                as dföjflkjadsh lhljfadhsf ljds asödj hadöslf lkshf asd
-                fasdof adslhf lkasdf asd
-                fadsjf adsljkf adklsö fa
-                sd öadjsf aslödf löads fasd foasdf asd
-                fadsöfj adsöl fjadslkjf asd
-                fadslkjhf ads# fasjdf as#df asdlkbf as#</p>
+            <p>Willkommen beim Project Campus!<br><br>
+                Der angezeigte Pfeil navigiert dich zum Nächsten Ziel auf dem Campusgelände.
+                Sobald du dem Ziel näher kommst, erhältst du einen Hinweis, der dich bei der Suche nach dem versteckten
+                Gegenstand unterstützen soll. Unten werden dir neben der Anzahl der gefunden Gegenstände,
+                die Entfernung zum nächstel Ziel angezeigt.<br><br>
+                Das Menü befindet sich in der unteren rechten Seite. Über dieses kannst du jederzeit den Hinweis
+                erneut abrufen, das Spiel neustarten oder dir diesen Hilfetext aufrufen.<br><br>
+                Nun wünschen wir die viel Spass beim Project Campus! :)
+            </p>
         </div>
         <a onclick="helpbox(false)">OK</a>
     </div>
@@ -80,7 +81,7 @@
     </div>
 </div>
 <ar-scene vuforiakey="#vuforiakey"
-          vuforiadataset__campus="src:url(resources/datasets/dataset.xml);"
+          vuforiadataset__campus="src:url(resources/datasets/campus.xml);"
           gameplay="targets: ar-geopose[target]; distance: #distance; credits: #credits;
                     message: #message_box; question: #question_box">
     <a-assets>
@@ -90,80 +91,74 @@
         <a-asset-item id="cube-obj" src="resources/cube.obj"></a-asset-item>
     </a-assets>
 
-    <!--a-entity referenceframe="parent: vuforia.campus.druckeranleitung" position="0 0 0" rotation="0 0 0">
-        <a-entity obj-model="obj: #cube-obj" scale="0.05 0.05 0.05"></a-entity>
-    </a-entity-->
+    <a-entity id="TestHome" referenceframe="parent: vuforia.campus.TestHome" position="0 0 -2" rotation="0 0 0">
+        <a-entity obj-model="obj: #cube-obj" scale="0.05 0.05 0.05" trackvisibility></a-entity>
+    </a-entity>
 
-    <a-entity referenceframe="parent: vuforia.campus.fhSchild" position="0 0 0" rotation="0 0 0">
+    <a-entity referenceframe="parent: vuforia.campus.fhSchild">
         <a-entity obj-model="obj: #cube-obj"></a-entity>
     </a-entity>
 
-    <a-entity referenceframe="parent: vuforia.campus.tuuerKomplett" position="0 0 0" rotation="0 0 0">
+    <a-entity referenceframe="parent: vuforia.campus.tuuerKomplett">
         <a-entity obj-model="obj: #cube-obj"></a-entity>
     </a-entity>
 
-    <a-entity referenceframe="parent: vuforia.campus.qRCode" position="0 0 0" rotation="0 0 0">
+    <a-entity referenceframe="parent: vuforia.campus.qRCode">
         <a-entity obj-model="obj: #cube-obj"></a-entity>
     </a-entity>
 
-    <a-entity referenceframe="parent: vuforia.campus.denkmal" position="0 0 0" rotation="0 0 0">
+    <a-entity referenceframe="parent: vuforia.campus.denkmal">
         <a-entity obj-model="obj: #cube-obj"></a-entity>
     </a-entity>
 
-    <a-entity referenceframe="parent: vuforia.campus.cellCube" position="0 0 0" rotation="0 0 0">
+    <a-entity referenceframe="parent: vuforia.campus.cellCube">
         <a-entity obj-model="obj: #cube-obj"></a-entity>
     </a-entity>
 
-    <a-entity referenceframe="parent: vuforia.campus.briefkasten" position="0 0 0" rotation="0 0 0">
+    <a-entity referenceframe="parent: vuforia.campus.briefkasten">
         <a-entity obj-model="obj: #cube-obj"></a-entity>
     </a-entity>
 
-    <a-entity referenceframe="parent: vuforia.campus.blindenstrich" position="0 0 0" rotation="0 0 0">
+    <a-entity referenceframe="parent: vuforia.campus.blindenstrich">
         <a-entity obj-model="obj: #cube-obj"></a-entity>
     </a-entity>
-
-    <!--Printer-->
-    <!--ar-geopose lla="8.904912 52.296664" target="distance: 3"></ar-geopose-->
 
     <!--FH-SChild-->
-    <ar-geopose lla="8.907355 52.296265" target="distance: 10"></ar-geopose>
+    <ar-geopose lla="8.907355 52.296265" target="distance: 10; hint:noch keine Idee..."></ar-geopose>
 
     <!--FH A-Gebäude Tür-->
     <ar-geopose lla="8.906991 52.29599" target="distance: 5"></ar-geopose>
 
     <!--QRCode-->
-    <ar-geopose lla="8.906227 52.295956" target="distance: 15"></ar-geopose>
+    <ar-geopose lla="8.906227 52.295956"
+                target="distance: 15; hint:3 Quadrate umrahmen Sie, das schwarz und weisse Muster, zu finden an des Rasens Kante, macht es den Standort bewusster.;"></ar-geopose>
 
     <!--CellCube-->
-    <ar-geopose lla="8.904242 52.296303" target="distance: 10"></ar-geopose>
+    <ar-geopose lla="8.904242 52.296303"
+                target="distance: 10; hint:Der Abstand zweier Linie ist nicht immer gleichbleibend."></ar-geopose>
 
     <!--Briefkasten-->
-    <ar-geopose lla="8.904126 52.296764" target="distance: 10"></ar-geopose>
+    <ar-geopose lla="8.904126 52.296764"
+                target="distance: 10; hint:Der Mensch mit Horn besucht diesen Ort einmal jeden Werktag."></ar-geopose>
 
     <!--Denkmal-->
-    <ar-geopose lla="8.907 52.29582" target="distance: 5"></ar-geopose>
+    <ar-geopose lla="8.907 52.29582"
+                target="distance: 5; hint:Viele sind dafuer gefallen, auf einer Karte markiert es einen Schatz."></ar-geopose>
 
     <!--Blindenstrich-->
-    <ar-geopose lla="8.9052 52.29658" target="distance: 15"></ar-geopose>
-
+    <ar-geopose lla="8.9052 52.29658" target="distance: 15; html:#hint_behindertenstrich; "></ar-geopose>
 
     <ar-camera>
-        <a-entity position="0 0.3 -1" track on-target="visible: false">
+        <a-entity position="0 0.4 -1.5" track on-target="visible: false">
             <a-entity scale="0.01 0.01 0.01" rotation="0 180 0"
                       obj-model="obj: #arrow-obj; mtl: #arrow-mtl"></a-entity>
         </a-entity>
-
-        <a-entity cursor="fuse: true; maxDistance: 30; timeout: 500"
-                  position="0 0 -25"
-                  geometry="primitive: ring"
-                  material="color: white; shader: flat"
-                  on-target="visible: true"></a-entity>
     </ar-camera>
 </ar-scene>
 <div id="bottom_box">
     <table>
         <tr>
-            <td style="border-right: 1px solid darkgray;"><img src="resources/distance.png"></td>
+            <td><img src="resources/distance.png"></td>
             <td><img src="resources/credits.png"></td>
             <td class="menu" rowspan="2">
                 <table>
@@ -179,8 +174,8 @@
                 </table>
             </td>
         </tr>
-        <tr style="background-color: rgba(0,0,0,0.3);">
-            <td id="distance" style="border-right: 1px solid darkgray;"></td>
+        <tr class="nums">
+            <td id="distance"></td>
             <td id="credits"></td>
         </tr>
     </table>

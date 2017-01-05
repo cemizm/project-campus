@@ -56,6 +56,9 @@ a {
 .box table {
     width: 100%;
     border-spacing: 0px;
+    border:0px;
+    margin: 0px;
+    padding: 0px;
 }
 
 #bottom_box {
@@ -76,6 +79,10 @@ a {
     border-spacing: 0px;
 }
 
+#bottom_box td:first-child {
+    border-right: 1px solid darkgray;
+}
+
 #bottom_box td {
     text-align: center;
     margin: 0px;
@@ -85,7 +92,7 @@ a {
 
 #bottom_box img {
     margin: 5px;
-    height: 60px;
+    height: 58px;
 }
 
 #bottom_box .menu {
@@ -102,5 +109,14 @@ a {
 #bottom_box .menu td {
     width: 100%;
     background-color: rgba(0, 0, 0, 0.4);
+    border: 0px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+    border-left: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+#bottom_box .nums {
+    background-color: dimgray;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
 }

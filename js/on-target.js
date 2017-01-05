@@ -9,7 +9,7 @@ AFRAME.registerComponent('on-target', {
         visible: {type: 'boolean', default: false}
     },
 
-    update: function() {
+    update: function () {
         this.visible = this.data.visible;
     },
 
