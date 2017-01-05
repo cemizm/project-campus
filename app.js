@@ -15,25 +15,22 @@ arScene.addEventListener('argon-vuforia-initialized', function (evt) {
 });
 arScene.addEventListener('argon-vuforia-initialization-failed', function (evt) {
     statusMsg.innerHTML = "Fehler bei Initialisierung: " + evt.detail.error.message;
-    getGameplay().run();
 });
 
 arScene.addEventListener('argon-vuforia-dataset-loaded', function (evt) {
     loader.classList.add('loaded');
-    getGameplay().run();
 });
 arScene.addEventListener('argon-vuforia-dataset-load-failed', function (evt) {
     statusMsg.innerHTML = "Inhalte konnten nicht geladen werden: " + evt.detail.error.message;
-    getGameplay().run();
 });
 
 arScene.addEventListener('argon-vuforia-not-available', function (evt) {
     loader.classList.add('loaded');
-    getGameplay().run();
 });
 
 function helpbox(show) {
     document.getElementById('help_box').style.display = show ? 'block' : 'none';
+    if (!show) getGameplay().start();
 }
 
 function close_message() {

@@ -19,7 +19,7 @@ AFRAME.registerComponent('gameplay', {
     },
 
     tick: function (t) {
-        if (!this.target) return;
+        if (!this.run || !this.target) return;
 
         var tarComp = this.target.components.target;
 
@@ -44,17 +44,16 @@ AFRAME.registerComponent('gameplay', {
 
     pause: function () {
         this.run = false;
-
         this.updateTarget();
     },
 
     play: function () {
-
         this.updateTarget();
     },
 
-    run: function() {
+    start: function() {
         this.run = true;
+        this.updateTarget();
     },
 
     restart: function () {
