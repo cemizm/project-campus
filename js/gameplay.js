@@ -52,18 +52,19 @@ AFRAME.registerComponent('gameplay', {
         this.updateTarget();
     },
 
+    restart: function() {
+        this.currentTarget = 0;
+        this.updateTarget();
+    },
+
     updateTarget: function () {
         this.setTarget(this.run ? this.data.targets[this.currentTarget] : null);
     },
 
     setTarget: function (target) {
         if (target == this.target) return;
-
-        this.showText(false, null);
         this.target = target;
-
-        if (this.data.message)
-            this.data.message.innerHTML = this.target != null ? this.target.components.target.getMessage() : "";
+        this.showText(false, null);
     },
 
     showDistance: function (distance) {

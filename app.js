@@ -47,4 +47,12 @@ function show_message() {
     gameplay.showHint();
 }
 
+function restartGame() {
+    var gameplay = getGameplay();
+
+    if (gameplay.isIntro()) return helpbox(true);
+
+    gameplay.restart();
+}
+
 helpbox(true);
