@@ -23,17 +23,28 @@ arScene.addEventListener('argon-vuforia-not-available', function (evt) {
     loader.classList.add('loaded');
 });
 
+function getGameplay() {
+    var scene = document.getElementsByTagName("ar-scene");
+    scene = scene.length > 0 ? scene[0] : null;
+
+    return scene ? scene.components.gameplay : null;
+}
+
 function helpbox(show) {
     document.getElementById('help_box').style.display = show ? 'block' : 'none';
 }
 
 function close_message() {
-    var scene = document.getElementsByTagName("ar-scene");
-
-    scene = scene.length > 0 ? scene[0] : null;
-    var gameplay = scene.components.gameplay;
-
+    var gameplay = getGameplay();
     gameplay.closeText();
+}
+
+function show_message() {
+    var gameplay = getGameplay();
+
+    if (gameplay.isIntro()) return helpbox(true);
+
+    gameplay.showHint();
 }
 
 helpbox(true);

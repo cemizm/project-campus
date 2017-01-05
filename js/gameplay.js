@@ -88,6 +88,19 @@ AFRAME.registerComponent('gameplay', {
         this.data.credits.innerHTML = text;
     },
 
+    isIntro: function() {
+        return this.currentTarget == 0;
+    },
+
+    showHint: function () {
+        if (!this.target) return;
+
+        var tarComp = this.target.components.target;
+        if (!tarComp || !tarComp.isEntered()) return;
+
+        this.showText(true, tarComp.getMessage());
+    },
+
     showText: function (entered, text) {
         this.entered = entered;
 
@@ -97,7 +110,7 @@ AFRAME.registerComponent('gameplay', {
         this.data.message.style.display = this.entered ? 'block' : 'none';
     },
 
-    closeText: function() {
-        this.showText(false);
+    closeText: function () {
+        this.data.message.style.display = 'none';
     }
 });
