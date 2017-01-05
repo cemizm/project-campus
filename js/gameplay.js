@@ -83,10 +83,7 @@ AFRAME.registerComponent('gameplay', {
     showCredits: function () {
         if (!this.data.credits) return;
 
-        var credits = this.currentTarget + 1;
-        var count = this.data.targets.length;
-
-        var text = credits + " / " + count;
+        var text = this.currentTarget + " / " + this.data.targets.length;
 
         this.data.credits.innerHTML = text;
     },
@@ -94,9 +91,13 @@ AFRAME.registerComponent('gameplay', {
     showText: function (entered, text) {
         this.entered = entered;
 
-        if (!this.data.message) return;
+        if (!text) text = "Sie haben das nächste Puzzlestück erreicht. ";
 
-        this.data.message.innerHTML = text;
+        this.data.message.innerHTML = entered ? text : "";
         this.data.message.style.display = this.entered ? 'block' : 'none';
+    },
+
+    closeText: function() {
+        this.showText(false);
     }
 });

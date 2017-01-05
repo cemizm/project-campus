@@ -7,36 +7,39 @@ a {
     color: #ffffff;
 }
 
-#message_box {
+.box {
     z-index: 999;
     position: fixed;
-    top: 50%;
+    top: 40%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     width: 80%;
     background-color: rgba(255, 255, 255, 0.4);
+    display: none;
 }
 
-#message_box .header {
+.box .header {
     width: 100%;
     font-weight: bold;
     font-size: 22px;
     background-color: rgba(0, 0, 0, 0.4);
 }
 
-#message_box p {
+.box p {
     font-size: 18px;
     margin: 0px;
     padding: 5px;
 }
 
-#message_box #message p {
+.box .body .content {
     padding-top: 15px;
     padding-bottom: 15px;
+    max-height: 300px;
+    overflow: scroll;
 }
 
-#message_box a {
+.box a {
     display: block;
     height: 30px;
     width: 100%;
@@ -71,4 +74,16 @@ a {
 
 #bottom_box img {
     height: 50px;
+}
+
+#help_button {
+    z-index: 999;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+#help_button img {
+    width: 40px;
+    height: 40px;
 }

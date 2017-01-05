@@ -22,3 +22,18 @@ arScene.addEventListener('argon-vuforia-dataset-load-failed', function (evt) {
 arScene.addEventListener('argon-vuforia-not-available', function (evt) {
     loader.classList.add('loaded');
 });
+
+function helpbox(show) {
+    document.getElementById('help_box').style.display = show ? 'block' : 'none';
+}
+
+function close_message() {
+    var scene = document.getElementsByTagName("ar-scene");
+
+    scene = scene.length > 0 ? scene[0] : null;
+    var gameplay = scene.components.gameplay;
+
+    gameplay.closeText();
+}
+
+helpbox(true);
