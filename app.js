@@ -41,9 +41,6 @@ function close_message() {
 
 function show_message() {
     var gameplay = getGameplay();
-
-    if (gameplay.isIntro()) return helpbox(true);
-
     gameplay.showHint();
 }
 
