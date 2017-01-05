@@ -84,7 +84,8 @@ a {
 }
 
 #bottom_box img {
-    height: 70px;
+    margin: 5px;
+    height: 60px;
 }
 
 #bottom_box .menu {
