@@ -29,7 +29,8 @@ AFRAME.registerComponent('gameplay', {
         this.showCredits();
 
         if (!this.entered && tarComp.isEntered()) {
-            this.showText(true, tarComp.getMessage());
+            this.entered = true;
+            this.showContent(this.data.message, true, tarComp.getMessage());
         }
     },
 
@@ -65,7 +66,8 @@ AFRAME.registerComponent('gameplay', {
     setTarget: function (target) {
         if (target == this.target) return;
         this.target = target;
-        this.showText(false, null);
+        this.showContent(this.data.message, false, null);
+        this.showContent(this.data.question, false, null);
     },
 
     showDistance: function (distance) {
@@ -96,21 +98,19 @@ AFRAME.registerComponent('gameplay', {
         var tarComp = this.target.components.target;
         if (!tarComp || !tarComp.isEntered()) return;
 
-        this.showText(true, tarComp.getMessage());
+        this.showContent(this.data.message, true, tarComp.getMessage());
     },
 
-    showText: function (entered, text) {
-        this.entered = entered;
-
+    showTest: function (entered, text) {
         if (!text) text = "Sie haben das nächste Puzzlestück erreicht. ";
         this.showContent(this.data.message, entered, text);
     },
 
     closeText: function () {
-        this.data.message.style.display = 'none';
+        this.showContent(this.data.message, false, "");
     },
 
-    showContent: function (element, show, content) {
+    showContent: function (element, show, text) {
         var content = element.getElementsByClassName("content");
 
         if (!content || content.length == 0) return;

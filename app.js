@@ -41,7 +41,7 @@ function close_message() {
 
 function show_message() {
     var gameplay = getGameplay();
-    gameplay.showText(true, "asda asdasd asd");
+    gameplay.showTest(true, "asda asdasd asd");
 }
 
 function restartGame() {
