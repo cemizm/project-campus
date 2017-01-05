@@ -45,7 +45,6 @@ function show_message() {
 
 function restart() {
     var gameplay = getGameplay();
-    gameplay.showQuestion(false);
     gameplay.restart();
 }
 

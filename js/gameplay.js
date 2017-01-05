@@ -57,6 +57,7 @@ AFRAME.registerComponent('gameplay', {
     },
 
     restart: function () {
+        this.showQuestion(false);
         this.currentTarget = 0;
         this.updateTarget();
     },
