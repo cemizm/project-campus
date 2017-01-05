@@ -4,8 +4,10 @@
 
 AFRAME.registerComponent('target', {
     schema: {
-        text: {type: 'string'},
-        distance: {type: 'number', default: 3}
+        hint: {type: 'string'},
+        html: {type: 'selector'},
+        distance: {type: 'number', default: 3},
+        vuforia: {type: 'selector'}
     },
 
     tick: function () {
@@ -32,7 +34,10 @@ AFRAME.registerComponent('target', {
     },
 
     getMessage: function() {
-        return this.data.text;
+        var html = this.data.html;
+        html = html ? html.innerHTML : null;
+
+        return  html ? html : "<p>" + this.data.hint + "</p>";
     },
 
     setUserAltitude: function() {
@@ -42,5 +47,9 @@ AFRAME.registerComponent('target', {
         if (!target || !camera) return;
 
         target.position.setY(camera.position.y);
+    },
+
+    getVuforia: function() {
+        return this.data.vuforia;
     }
 });

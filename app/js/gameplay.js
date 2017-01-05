@@ -16,6 +16,20 @@ AFRAME.registerComponent('gameplay', {
     init: function () {
         this.currentTarget = 0;
         this.run = false;
+
+        var self = this;
+        this.el.sceneEl.addEventListener("referenceframe-statuschanged", function (evt) {
+            if (!evt.detail.found) return;
+
+            var target = self.getCurrentTarget();
+            target = target != null ? target.components.target : null;
+            if (!target || !target.isEntered()) return;
+
+            if (target.getVuforia() && evt.detail.target != target.getVuforia())
+                return;
+
+            self.nextTarget();
+        });
     },
 
     tick: function (t) {
@@ -62,7 +76,26 @@ AFRAME.registerComponent('gameplay', {
         this.updateTarget();
     },
 
+    nextTarget: function () {
+        if (this.currentTarget == this.data.targets.length)
+            return;
+
+        this.currentTarget++;
+
+        if (this.currentTarget == this.data.targets.length) {
+            this.showContent(this.data.message, true, "<p>Du hast den Campus erfolgreich erkundet. Wir wünschen dir nun viel Spass beim Studium :)</p>");
+            return;
+        }
+
+        this.updateTarget();
+
+        this.showContent(this.data.message, true, "<p>Super! Auf zum nächsten Ziel!</p>");
+    },
+
     updateTarget: function () {
+        if (this.currentTarget >= this.data.targets.length)
+            return;
+
         this.setTarget(this.run ? this.data.targets[this.currentTarget] : null);
     },
 
