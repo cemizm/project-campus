@@ -1,6 +1,7 @@
 /**
  * Created by cem on 21.12.16.
  */
+const StorageKey = "currentTarget";
 
 AFRAME.registerComponent('gameplay', {
     target: null,
@@ -14,7 +15,9 @@ AFRAME.registerComponent('gameplay', {
     },
 
     init: function () {
-        this.currentTarget = 0;
+        if(!localStorage.getItem(StorageKey)) localStorage.setItem(StorageKey, 0);
+
+        this.currentTarget = localStorage.getItem(StorageKey);
         this.run = false;
 
         var self = this;
@@ -95,6 +98,8 @@ AFRAME.registerComponent('gameplay', {
     updateTarget: function () {
         if (this.currentTarget >= this.data.targets.length)
             return;
+
+        localStorage.setItem(StorageKey, this.currentTarget);
 
         this.setTarget(this.run ? this.data.targets[this.currentTarget] : null);
     },
