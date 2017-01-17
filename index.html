@@ -88,11 +88,11 @@
         <a-asset-item id="vuforiakey" src="key.txt"></a-asset-item>
         <a-asset-item id="arrow-obj" src="resources/arrow.obj"></a-asset-item>
         <a-asset-item id="arrow-mtl" src="resources/arrow.mtl"></a-asset-item>
-        <a-asset-item id="monarch-obj" src="resources/monarch.obj"></a-asset-item>
-        <a-asset-item id="monarch-mtl" src="resources/monarch.mtl"></a-asset-item>
+        <a-asset-item id="key-obj" src="resources/key.obj"></a-asset-item>
+        <a-asset-item id="key-mtl" src="resources/key.mtl"></a-asset-item>
 
         <script id="reward" type="text/html">
-            <a-entity obj-model="obj: #monarch-obj; mtl: #monarch-mtl" rotation="0 -90 0">
+            <a-entity obj-model="obj: #key-obj; mtl: #key-mtl" rotation="0 -90 0">
                 <a-animation attribute="rotation"
                              dur="10000"
                              fill="forwards"
@@ -103,7 +103,7 @@
     </a-assets>
 
     <a-entity referenceframe="parent: vuforia.campus.heft">
-        <a-entity obj-model="obj: #monarch-obj; mtl: #monarch-mtl" rotation="0 -90 0"></a-entity>
+        <a-entity obj-model="obj: #key-obj; mtl: #key-mtl" rotation="0 -90 0"></a-entity>
     </a-entity>
 
     <a-entity referenceframe="parent: vuforia.campus.fhSchild" position="0 0 0" rotation="0 0 0">
