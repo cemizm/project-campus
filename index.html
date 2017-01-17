@@ -91,19 +91,19 @@
         <a-asset-item id="monarch-obj" src="resources/monarch.obj"></a-asset-item>
         <a-asset-item id="monarch-mtl" src="resources/monarch.mtl"></a-asset-item>
 
-        <!--script id="coin" type="text/html">
-            <a-entity obj-model="obj: #coin-obj; mtl: #coin-mtl" scale="0.5 0.5 0.5">
+        <script id="reward" type="text/html">
+            <a-entity obj-model="obj: #monarch-obj; mtl: #monarch-mtl" rotation="0 -90 0">
                 <a-animation attribute="rotation"
                              dur="10000"
                              fill="forwards"
-                             to="0 360 0"
+                             to="0 -90 360"
                              repeat="indefinite"></a-animation>
             </a-entity>
-        </script-->
+        </script>
     </a-assets>
 
     <a-entity referenceframe="parent: vuforia.campus.heft">
-        <a-entity obj-model="obj: #monarch-obj; mtl: #monarch-mtl"></a-entity>
+        <a-entity template="src: #reward"></a-entity>
     </a-entity>
 
     <a-entity referenceframe="parent: vuforia.campus.fhSchild" position="0 0 0" rotation="0 0 0">
