@@ -92,12 +92,7 @@
         <a-asset-item id="key-mtl" src="resources/key.mtl"></a-asset-item>
 
         <script id="reward" type="text/html">
-            <a-entity obj-model="obj: #key-obj; mtl: #key-mtl" rotation="0 0 0">
-                <a-animation attribute="rotation"
-                             dur="10000"
-                             fill="forwards"
-                             to="0 -90 360"
-                             repeat="indefinite"></a-animation>
+            <a-entity obj-model="obj: #key-obj; mtl: #key-mtl" rotation="-90 0 0">
             </a-entity>
         </script>
     </a-assets>
@@ -108,7 +103,7 @@
                          dur="5000"
                          easing="linear"
                          fill="forwards"
-                         to="-90 0 360"
+                         to="-90 0 0"
                          repeat="indefinite"></a-animation>
         </a-entity>
     </a-entity>
