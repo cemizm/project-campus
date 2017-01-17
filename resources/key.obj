@@ -1,6 +1,6 @@
 # Blender v2.76 (sub 0) OBJ File: 'Key_01.blend'
 # www.blender.org
-mtllib Key_01.mtl
+mtllib key.mtl
 o Key_01_polySurface1
 v 0.039326 0.142559 -0.000296
 v 0.029046 0.156409 -0.000296
