@@ -89,11 +89,10 @@
         <a-asset-item id="arrow-obj" src="resources/arrow.obj"></a-asset-item>
         <a-asset-item id="arrow-mtl" src="resources/arrow.mtl"></a-asset-item>
         <a-asset-item id="key-obj" src="resources/key.obj"></a-asset-item>
-        <a-asset-item id="key-mtl" src="resources/key.mtl"></a-asset-item>
     </a-assets>
 
     <a-entity referenceframe="parent: vuforia.campus.heft">
-        <a-entity obj-model="obj: #key-obj; mtl: #key-mtl" rotation="0 0 90" scale="0.2 0.2 0.2">
+        <a-entity obj-model="obj: #key-obj" rotation="0 0 90" scale="0.2 0.2 0.2">
             <a-animation attribute="rotation"
                          dur="3000"
                          fill="forwards"
@@ -103,8 +102,8 @@
         </a-entity>
     </a-entity>
 
-    <a-entity referenceframe="parent: vuforia.campus.fhSchild" position="0 0 0" rotation="0 0 0">
-        <a-entity obj-model="obj: #key-obj; mtl: #key-mtl" rotation="0 0 90" scale="0.2 0.2 0.2">
+    <a-entity referenceframe="parent: vuforia.campus.fhSchild">
+        <a-entity obj-model="obj: #key-obj" rotation="0 0 90" scale="1 1 1">
             <a-animation attribute="rotation"
                          dur="3000"
                          fill="forwards"
@@ -114,8 +113,8 @@
         </a-entity>
     </a-entity>
 
-    <a-entity referenceframe="parent: vuforia.campus.tuuerKomplett" position="0 0 0" rotation="0 0 0">
-        <a-entity obj-model="obj: #key-obj; mtl: #key-mtl" rotation="0 0 90" scale="0.2 0.2 0.2">
+    <a-entity referenceframe="parent: vuforia.campus.tuuerKomplett">
+        <a-entity obj-model="obj: #key-obj" rotation="0 0 90" scale="2 2 2">
             <a-animation attribute="rotation"
                          dur="3000"
                          fill="forwards"
@@ -125,8 +124,8 @@
         </a-entity>
     </a-entity>
 
-    <a-entity referenceframe="parent: vuforia.campus.qRCode" position="0 0 0" rotation="0 0 0">
-        <a-entity obj-model="obj: #key-obj; mtl: #key-mtl" rotation="0 0 90" scale="0.2 0.2 0.2">
+    <a-entity referenceframe="parent: vuforia.campus.qRCode">
+        <a-entity obj-model="obj: #key-obj" rotation="0 0 90" scale="0.4 0.4 0.4">
             <a-animation attribute="rotation"
                          dur="3000"
                          fill="forwards"
@@ -136,8 +135,8 @@
         </a-entity>
     </a-entity>
 
-    <a-entity referenceframe="parent: vuforia.campus.denkmal" position="0 0 0" rotation="0 0 0">
-        <a-entity obj-model="obj: #key-obj; mtl: #key-mtl" rotation="0 0 90" scale="0.2 0.2 0.2">
+    <a-entity referenceframe="parent: vuforia.campus.denkmal">
+        <a-entity obj-model="obj: #key-obj" rotation="0 0 90" scale="0.4 0.4 0.4">
             <a-animation attribute="rotation"
                          dur="3000"
                          fill="forwards"
@@ -147,8 +146,8 @@
         </a-entity>
     </a-entity>
 
-    <a-entity referenceframe="parent: vuforia.campus.cellCube" position="0 0 0" rotation="0 0 0">
-        <a-entity obj-model="obj: #key-obj; mtl: #key-mtl" rotation="0 0 90" scale="0.2 0.2 0.2">
+    <a-entity referenceframe="parent: vuforia.campus.cellCube">
+        <a-entity obj-model="obj: #key-obj" rotation="0 0 90" scale="0.2 0.2 0.2">
             <a-animation attribute="rotation"
                          dur="3000"
                          fill="forwards"
@@ -158,8 +157,8 @@
         </a-entity>
     </a-entity>
 
-    <a-entity referenceframe="parent: vuforia.campus.briefkasten" position="0 0 0" rotation="0 0 0">
-        <a-entity obj-model="obj: #key-obj; mtl: #key-mtl" rotation="0 0 90" scale="0.2 0.2 0.2">
+    <a-entity referenceframe="parent: vuforia.campus.briefkasten">
+        <a-entity obj-model="obj: #key-obj" rotation="0 0 90" scale="1 1 1">
             <a-animation attribute="rotation"
                          dur="3000"
                          fill="forwards"
@@ -169,8 +168,8 @@
         </a-entity>
     </a-entity>
 
-    <a-entity referenceframe="parent: vuforia.campus.blindenstrich" position="0 0 0" rotation="0 0 0">
-        <a-entity obj-model="obj: #key-obj; mtl: #key-mtl" rotation="0 0 90" scale="0.2 0.2 0.2">
+    <a-entity referenceframe="parent: vuforia.campus.blindenstrich">
+        <a-entity obj-model="obj: #key-obj" rotation="0 0 90" scale="0.6 0.6 0.6">
             <a-animation attribute="rotation"
                          dur="3000"
                          fill="forwards"
@@ -182,11 +181,11 @@
 
     <!-- Die Regelwut in Deutschland machen viele überflüssig,  parken -->
     <!--FH-SChild-->
-    <ar-geopose lla="8.907355 52.296265" target="distance: 10; hint:Der Pfeil markiert den Anfang."></ar-geopose>
+    <ar-geopose lla="8.907355 52.296265" target="distance: 15; hint:Der Pfeil markiert den Anfang."></ar-geopose>
 
     <!--FH A-Gebäude Tür-->
     <ar-geopose lla="8.906991 52.29599"
-                target="distance: 5; hint:Die sechs eisernen Rosen offenbaren die Schlüssel."></ar-geopose>
+                target="distance: 15; hint:Die sechs eisernen Rosen offenbaren die Schlüssel."></ar-geopose>
 
     <!--QRCode-->
     <ar-geopose lla="8.906227 52.295956"
@@ -194,18 +193,18 @@
 
     <!--CellCube-->
     <ar-geopose lla="8.904242 52.296303"
-                target="distance: 10; hint:Der Abstand zweier Linie ist nicht immer gleichbleibend."></ar-geopose>
+                target="distance: 15; hint:Der Abstand zweier Linie ist nicht immer gleichbleibend."></ar-geopose>
 
     <!--Briefkasten-->
-    <ar-geopose lla="8.904126 52.296764"
-                target="distance: 10; hint:Der Mensch mit Horn besucht diesen Ort einmal jeden Werktag."></ar-geopose>
+    <ar-geopose lla="8.904054 52.296779"
+                target="distance: 15; hint:Der Mensch mit Horn besucht diesen Ort einmal jeden Werktag."></ar-geopose>
 
     <!--Denkmal-->
-    <ar-geopose lla="8.907 52.29582"
-                target="distance: 5; hint:Viele sind dafuer gefallen, auf einer Karte markiert es einen Schatz."></ar-geopose>
+    <ar-geopose lla="8.907044 52.295809"
+                target="distance: 15; hint:Viele sind dafuer gefallen, auf einer Karte markiert es einen Schatz."></ar-geopose>
 
     <!--Blindenstrich-->
-    <ar-geopose lla="8.9052 52.29658" target="distance: 15; html:#hint_behindertenstrich; "></ar-geopose>
+    <ar-geopose lla="8.905285 52.296561" target="distance: 15; html:#hint_behindertenstrich; "></ar-geopose>
 
     <ar-camera>
         <a-entity position="0 0.4 -1.5" track on-target="visible: false">

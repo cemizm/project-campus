@@ -102,6 +102,7 @@ AFRAME.registerComponent('gameplay', {
     setTarget: function (target) {
         if (target == this.target) return;
         this.target = target;
+        this.entered = false;
         this.showContent(this.data.message, false, null);
         this.showContent(this.data.question, false, null);
     },
