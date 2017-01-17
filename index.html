@@ -88,46 +88,58 @@
         <a-asset-item id="vuforiakey" src="key.txt"></a-asset-item>
         <a-asset-item id="arrow-obj" src="resources/arrow.obj"></a-asset-item>
         <a-asset-item id="arrow-mtl" src="resources/arrow.mtl"></a-asset-item>
-        <a-asset-item id="cube-obj" src="resources/cube.obj"></a-asset-item>
+        <a-asset-item id="coin-obj" src="resources/coin.obj"></a-asset-item>
+        <a-asset-item id="coin-mtl" src="resources/coin.mtl"></a-asset-item>
+
+        <script id="coin" type="text/html">
+            <a-entity obj-model="obj: #coin-obj; mtl: #coin-mtl" scale="0.5 0.5 0.5">
+                <a-animation attribute="rotation"
+                             dur="10000"
+                             fill="forwards"
+                             to="0 360 0"
+                             repeat="indefinite"></a-animation>
+            </a-entity>
+        </script>
     </a-assets>
 
     <a-entity id="TestHome" referenceframe="parent: vuforia.campus.TestHome" position="0 0 -2" rotation="0 0 0">
-        <a-entity obj-model="obj: #cube-obj" scale="0.05 0.05 0.05" trackvisibility></a-entity>
+        <a-entity template="src: #coin"></a-entity>
     </a-entity>
 
     <a-entity referenceframe="parent: vuforia.campus.fhSchild">
-        <a-entity obj-model="obj: #cube-obj"></a-entity>
+        <a-entity template="src: #coin"></a-entity>
     </a-entity>
 
     <a-entity referenceframe="parent: vuforia.campus.tuuerKomplett">
-        <a-entity obj-model="obj: #cube-obj"></a-entity>
+        <a-entity template="src: #coin"></a-entity>
     </a-entity>
 
     <a-entity referenceframe="parent: vuforia.campus.qRCode">
-        <a-entity obj-model="obj: #cube-obj"></a-entity>
+        <a-entity template="src: #coin"></a-entity>
     </a-entity>
 
     <a-entity referenceframe="parent: vuforia.campus.denkmal">
-        <a-entity obj-model="obj: #cube-obj"></a-entity>
+        <a-entity template="src: #coin"></a-entity>
     </a-entity>
 
     <a-entity referenceframe="parent: vuforia.campus.cellCube">
-        <a-entity obj-model="obj: #cube-obj"></a-entity>
+        <a-entity template="src: #coin"></a-entity>
     </a-entity>
 
     <a-entity referenceframe="parent: vuforia.campus.briefkasten">
-        <a-entity obj-model="obj: #cube-obj"></a-entity>
+        <a-entity template="src: #coin"></a-entity>
     </a-entity>
 
     <a-entity referenceframe="parent: vuforia.campus.blindenstrich">
-        <a-entity obj-model="obj: #cube-obj"></a-entity>
+        <a-entity template="src: #coin"></a-entity>
     </a-entity>
-
+    <!-- Die Regelwut in Deutschland machen viele überflüssig,  parken -->
     <!--FH-SChild-->
-    <ar-geopose lla="8.907355 52.296265" target="distance: 10; hint:noch keine Idee..."></ar-geopose>
+    <ar-geopose lla="8.907355 52.296265" target="distance: 10; hint:Der Pfeil markiert den Anfang."></ar-geopose>
 
     <!--FH A-Gebäude Tür-->
-    <ar-geopose lla="8.906991 52.29599" target="distance: 5"></ar-geopose>
+    <ar-geopose lla="8.906991 52.29599"
+                target="distance: 5; hint:Die sechs eisernen Rosen offenbaren die Münze."></ar-geopose>
 
     <!--QRCode-->
     <ar-geopose lla="8.906227 52.295956"
@@ -184,7 +196,6 @@
 <script src="js/track.js"></script>
 <script src="js/target.js"></script>
 <script src="js/on-target.js"></script>
-<script src="js/click-listener.js"></script>
 <script src="js/gameplay.js"></script>
 </body>
 </html>
